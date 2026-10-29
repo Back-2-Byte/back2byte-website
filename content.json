@@ -1,0 +1,282 @@
+{
+  "meta": {
+    "companyName": "Back2Byte Interactive",
+    "contactEmail": "hello@back2byte.com",
+    "defaultLanguage": "pt",
+    "languages": ["pt", "en"]
+  },
+  "translations": {
+    "pt": {
+      "nav": {
+        "solutions": "Soluções",
+        "expertise": "Engenharia",
+        "experience": "Experiência",
+        "partners": "Parceiros",
+        "culture": "Cultura & P&D",
+        "contact": "Fale com a equipe"
+      },
+      "hero": {
+        "eyebrow": "ENGENHARIA DE GAMES · SOLUÇÕES B2B",
+        "titleStart": "Te damos o byte.",
+        "titleEnd": "Te damos cobertura.",
+        "body": "Co-development, porting e gamificação corporativa com rigor de engenharia, previsibilidade e performance do protótipo à entrega.",
+        "primary": "Agendar uma conversa estratégica",
+        "secondary": "Conhecer soluções B2B",
+        "scroll": "ROLE PARA EXPLORAR"
+      },
+      "services": {
+        "eyebrow": "O QUE FAZEMOS",
+        "title": "Soluções para desafios\nque pedem engenharia.",
+        "intro": "Três frentes de atuação, uma mesma abordagem: entender o desafio, montar o time certo e entregar com qualidade técnica.",
+        "codev": {
+          "kicker": "PARA ESTÚDIOS E PUBLISHERS",
+          "title": "Co-development & staff augmentation",
+          "body": "Engenheiros experientes integrados ao seu time para desenvolver sistemas, mecânicas e arquitetura de software — com colaboração próxima e escopo alinhado."
+        },
+        "porting": {
+          "kicker": "PERFORMANCE MULTIPLATAFORMA",
+          "title": "Porting & otimização",
+          "body": "Adaptação de jogos para PC, consoles e web, com profiling e otimização para melhorar estabilidade, desempenho e preparação técnica para cada plataforma."
+        },
+        "gamification": {
+          "kicker": "PARA MARCAS E INDÚSTRIAS",
+          "title": "Gamificação & simuladores",
+          "body": "Experiências interativas para marketing, eventos e treinamento corporativo — de advergames a simulações de processos e segurança industrial."
+        },
+        "delivery": "Projetos end-to-end, co-desenvolvimento ou apoio técnico sob medida."
+      },
+      "expertise": {
+        "eyebrow": "CAPACIDADE TÉCNICA",
+        "title": "Rigor de engenharia.\nEntrega previsível.",
+        "intro": "Decisões técnicas conectadas aos objetivos do projeto, com comunicação transparente e atenção aos detalhes que fazem diferença em produção.",
+        "tabs": {
+          "architecture": "Arquitetura C# & Unity",
+          "porting": "Porting multiplataforma",
+          "optimization": "Otimização de performance",
+          "delivery": "Previsibilidade de entrega"
+        },
+        "content": {
+          "architecture": {
+            "title": "Bases sólidas para projetos complexos.",
+            "body": "Arquitetura desacoplada, padrões de projeto e atenção ao uso de memória para construir sistemas que acompanham as necessidades do produto."
+          },
+          "porting": {
+            "title": "Um jogo, pronto para novos destinos.",
+            "body": "Adequação da base técnica e dos fluxos de build às particularidades das plataformas, considerando estabilidade e requisitos de publicação."
+          },
+          "optimization": {
+            "title": "Performance medida, não presumida.",
+            "body": "Profiling orientado por dados para localizar gargalos, reduzir custos de processamento e alcançar uma experiência mais fluida em diferentes hardwares."
+          },
+          "delivery": {
+            "title": "Clareza para decidir e avançar.",
+            "body": "Escopo e marcos de trabalho combinados com o cliente, visibilidade sobre o andamento e alinhamento contínuo das prioridades do projeto."
+          }
+        }
+      },
+      "experience": {
+        "eyebrow": "EXPERIÊNCIA DA EQUIPE",
+        "title": "Trabalho que atravessa\nfronteiras e plataformas.",
+        "intro": "A bagagem da equipe foi construída em projetos de diferentes escalas e segmentos da indústria de jogos.",
+        "note": "Projetos que fazem parte do histórico profissional da equipe."
+      },
+      "why": {
+        "eyebrow": "INTERATIVIDADE PARA NEGÓCIOS",
+        "title": "A sua marca não precisa\nser só assistida.",
+        "body": "Jogos transformam comunicação em participação. Em vez de apenas receber uma mensagem, as pessoas interagem com ela — uma oportunidade para marcas criarem experiências memoráveis e relevantes.",
+        "link": "Vamos pensar na experiência ideal",
+        "benefits": {
+          "engagement": {
+            "title": "Mais participação",
+            "body": "Experiências que convidam o público a explorar, experimentar e interagir com a sua marca."
+          },
+          "learning": {
+            "title": "Aprendizado pela prática",
+            "body": "Simulações e treinamentos que permitem praticar processos em ambientes controlados."
+          },
+          "insight": {
+            "title": "Interações com propósito",
+            "body": "Mecânicas conectadas aos objetivos do negócio, como engajar, orientar ou apresentar um produto."
+          }
+        }
+      },
+      "partners": {
+        "eyebrow": "HUB COLABORATIVO",
+        "title": "Uma rede feita para\nsomar capacidades.",
+        "intro": "Um ecossistema colaborativo de especialistas amplia a capacidade de produção e conecta cada projeto aos parceiros adequados.",
+        "jp": "Software corporativo, aplicações web e infraestrutura.",
+        "inominatum": "Jogos autorais e experiências para PC e consoles.",
+        "strafe": "Desenvolvimento mobile e prototipagem ágil.",
+        "hitkill": "Estúdio parceiro integrado ao hub colaborativo."
+      },
+      "culture": {
+        "eyebrow": "CULTURA & P&D",
+        "title": "Paixão por jogos.\nCuriosidade de engenharia.",
+        "body": "A cultura de desenvolvimento de jogos incentiva experimentação, colaboração e aprendizado contínuo. Esse espírito também alimenta nossos protótipos e iniciativas de pesquisa e desenvolvimento.",
+        "project": "PROJETO EM DESENVOLVIMENTO"
+      },
+      "contact": {
+        "eyebrow": "CONTATO B2B",
+        "title": "Vamos tirar seu\npróximo projeto do papel.",
+        "body": "Conte um pouco sobre o seu desafio. Nossa equipe pode ajudar a encontrar o melhor caminho técnico para a sua ideia.",
+        "name": "Seu nome",
+        "company": "Empresa",
+        "email": "E-mail corporativo",
+        "message": "Como podemos ajudar?",
+        "submit": "Preparar mensagem",
+        "note": "O envio abrirá o aplicativo de e-mail configurado no seu dispositivo.",
+        "direct": "Ou fale diretamente com a equipe"
+      },
+      "footer": {
+        "tagline": "Te damos o byte. Te damos cobertura."
+      },
+      "ui": {
+        "skipLink": "Pular para o conteúdo",
+        "switchToEnglish": "Mudar idioma para inglês",
+        "switchToPortuguese": "Mudar idioma para português",
+        "switchToLight": "Ativar tema claro",
+        "switchToDark": "Ativar tema escuro",
+        "openMenu": "Abrir menu",
+        "closeMenu": "Fechar menu",
+        "primaryNavigation": "Navegação principal",
+        "brandHome": "Back2Byte Interactive — início"
+      }
+    },
+    "en": {
+      "nav": {
+        "solutions": "Solutions",
+        "expertise": "Engineering",
+        "experience": "Experience",
+        "partners": "Partners",
+        "culture": "Culture & R&D",
+        "contact": "Talk to our team"
+      },
+      "hero": {
+        "eyebrow": "GAME ENGINEERING · B2B SOLUTIONS",
+        "titleStart": "We got your back.",
+        "titleEnd": "We got your byte.",
+        "body": "Co-development, porting, and corporate gamification with engineering rigor, predictable delivery, and performance from prototype to launch.",
+        "primary": "Schedule a strategy call",
+        "secondary": "Explore B2B solutions",
+        "scroll": "SCROLL TO EXPLORE"
+      },
+      "services": {
+        "eyebrow": "WHAT WE DO",
+        "title": "Solutions for challenges\nthat call for engineering.",
+        "intro": "Three areas of expertise, one consistent approach: understand the challenge, assemble the right team, and deliver with technical excellence.",
+        "codev": {
+          "kicker": "FOR STUDIOS AND PUBLISHERS",
+          "title": "Co-development & staff augmentation",
+          "body": "Experienced engineers join your team to build systems, mechanics, and software architecture through close collaboration and clearly aligned scope."
+        },
+        "porting": {
+          "kicker": "CROSS-PLATFORM PERFORMANCE",
+          "title": "Porting & optimization",
+          "body": "Game adaptation for PC, consoles, and web, with profiling and optimization to improve stability, performance, and technical readiness for each platform."
+        },
+        "gamification": {
+          "kicker": "FOR BRANDS AND INDUSTRIES",
+          "title": "Gamification & simulators",
+          "body": "Interactive experiences for marketing, events, and corporate training — from advergames to industrial process and safety simulations."
+        },
+        "delivery": "End-to-end projects, co-development, or tailored engineering support."
+      },
+      "expertise": {
+        "eyebrow": "TECHNICAL CAPABILITIES",
+        "title": "Engineering rigor.\nPredictable delivery.",
+        "intro": "Technical decisions aligned with project goals, transparent communication, and attention to the details that matter in production.",
+        "tabs": {
+          "architecture": "C# & Unity architecture",
+          "porting": "Cross-platform porting",
+          "optimization": "Performance optimization",
+          "delivery": "Predictable delivery"
+        },
+        "content": {
+          "architecture": {
+            "title": "Solid foundations for complex projects.",
+            "body": "Decoupled architecture, established design patterns, and careful memory management build systems that grow with product needs."
+          },
+          "porting": {
+            "title": "One game, ready for new platforms.",
+            "body": "We adapt technical foundations and build workflows to platform-specific requirements, with stability and publishing in mind."
+          },
+          "optimization": {
+            "title": "Performance measured, not assumed.",
+            "body": "Data-driven profiling identifies bottlenecks, reduces processing overhead, and helps deliver smoother experiences across hardware."
+          },
+          "delivery": {
+            "title": "Clarity to make decisions and move forward.",
+            "body": "Scope and milestones agreed with the client, visibility into progress, and ongoing alignment around project priorities."
+          }
+        }
+      },
+      "experience": {
+        "eyebrow": "TEAM EXPERIENCE",
+        "title": "Work across\nplatforms and borders.",
+        "intro": "Our team's experience spans projects of different scales and areas of the game industry.",
+        "note": "Projects included in the team's professional track record."
+      },
+      "why": {
+        "eyebrow": "INTERACTIVITY FOR BUSINESS",
+        "title": "Your brand deserves\nto be more than watched.",
+        "body": "Games turn communication into participation. Instead of simply receiving a message, people interact with it — an opportunity for brands to create memorable and meaningful experiences.",
+        "link": "Let's design the right experience",
+        "benefits": {
+          "engagement": {
+            "title": "More participation",
+            "body": "Experiences that invite audiences to explore, try, and interact with your brand."
+          },
+          "learning": {
+            "title": "Learning by doing",
+            "body": "Simulations and training that let people practice processes in controlled environments."
+          },
+          "insight": {
+            "title": "Purposeful interaction",
+            "body": "Mechanics connected to business goals, such as engaging, educating, or introducing a product."
+          }
+        }
+      },
+      "partners": {
+        "eyebrow": "COLLABORATIVE HUB",
+        "title": "A network built\nto bring expertise together.",
+        "intro": "A collaborative ecosystem of specialists expands production capacity and connects each project with the right partners.",
+        "jp": "Enterprise software, web applications, and infrastructure.",
+        "inominatum": "Original games and experiences for PC and consoles.",
+        "strafe": "Mobile development and agile prototyping.",
+        "hitkill": "A partner studio in our collaborative network."
+      },
+      "culture": {
+        "eyebrow": "CULTURE & R&D",
+        "title": "Passion for games.\nEngineering curiosity.",
+        "body": "Game development culture encourages experimentation, collaboration, and continuous learning. That spirit also fuels our prototypes and research and development initiatives.",
+        "project": "PROJECT IN DEVELOPMENT"
+      },
+      "contact": {
+        "eyebrow": "B2B CONTACT",
+        "title": "Let's get your\nnext project moving.",
+        "body": "Tell us a little about your challenge. Our team can help you find the right technical approach for your idea.",
+        "name": "Your name",
+        "company": "Company",
+        "email": "Business email",
+        "message": "How can we help?",
+        "submit": "Prepare message",
+        "note": "Submitting opens the email application configured on your device.",
+        "direct": "Or contact our team directly"
+      },
+      "footer": {
+        "tagline": "We got your back. We got your byte."
+      },
+      "ui": {
+        "skipLink": "Skip to content",
+        "switchToEnglish": "Switch language to English",
+        "switchToPortuguese": "Switch language to Portuguese",
+        "switchToLight": "Switch to light theme",
+        "switchToDark": "Switch to dark theme",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu",
+        "primaryNavigation": "Primary navigation",
+        "brandHome": "Back2Byte Interactive — home"
+      }
+    }
+  }
+}

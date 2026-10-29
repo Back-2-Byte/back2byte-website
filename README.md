@@ -1,25 +1,25 @@
-# Back2Byte Interactive - Corporate Website
+# Back2Byte Interactive
 
-Repositório oficial contendo o código-fonte do site institucional da Back2Byte Interactive. O projeto foi estruturado para refletir o posicionamento da empresa como uma holding focada em serviços B2B de engenharia de jogos, co-desenvolvimento, porting e gamificação corporativa.
+Website institucional da Back2Byte Interactive, holding B2B especializada em engenharia de games, co-development, porting, otimização e gamificação corporativa.
 
-## Sobre a Empresa
+## Estrutura
 
-A Back2Byte Interactive fornece excelência em engenharia e desenvolvimento de jogos. Com expertise sólida em C# e Unity, além de desenvolvimento multiplataforma, nossa equipe de liderança técnica tem histórico de atuação em grandes títulos do mercado. Operamos com foco em arquitetura escalável, otimização extrema e entregas confiáveis para estúdios parceiros e clientes corporativos.
+- `index.html`: estrutura semântica e conteúdo inicial em português.
+- `styles.css`: identidade visual, temas escuro/claro, componentes e layouts responsivos.
+- `script.js`: alternância de idioma e tema, navegação móvel, abas técnicas, animações e formulário de contato.
+- `content.json`: metadados e traduções em português e inglês.
+- `assets/`: logotipos e espaço para imagens que serão adicionadas ao site.
 
-## Unidades de Negócio
+## Visualização local
 
-O site apresenta as duas frentes de atuação principais da holding:
+Como o site carrega `content.json` usando `fetch`, abra-o por um servidor HTTP local, não diretamente como arquivo. No VS Code, inicie o **Live Server** na raiz do projeto e abra a URL local disponibilizada.
 
-1. Corporate Gamification & Advergames: Soluções completas (end-to-end) para empresas fora da indústria de jogos. Inclui jogos para feiras, eventos, campanhas de marketing, quizzes interativos e treinamentos gamificados.
-2. Game Engineering & Co-Development: Serviços técnicos especializados para publishers e estúdios. Abrange porting (consoles, PC e mobile), otimização de performance e engenharia sob demanda.
+O formulário de contato prepara uma mensagem e abre o aplicativo de e-mail configurado no dispositivo. Ele não envia dados a um servidor.
 
-## Características do Site
+## Conteúdo e identidade
 
-* Design B2B Tech-Creative: Interface com paleta escura (dark mode nativo) e destaques em roxo neon, transmitindo seriedade corporativa aliada à criatividade do setor de jogos.
-* Internacionalização: Sistema de alternância de idiomas (Português / Inglês) integrado via JavaScript, permitindo atualização de todo o conteúdo do DOM em tempo real.
-* UI/UX Dinâmica: Animações de rolagem suaves (scroll reveal), menus responsivos e seções interativas para filtragem de projetos.
-* Single-Page Structure: Arquitetura em arquivo único otimizada para carregamento rápido e fácil manutenção institucional.
+Edite os textos em `content.json`, mantendo as mesmas chaves nas seções `pt` e `en`. As cores e os estilos globais estão definidos como propriedades CSS em `:root`, em `styles.css`. O tema escuro é o padrão; o controle no cabeçalho alterna para o tema claro.
 
 ## Licença
 
-Este projeto é de propriedade intelectual da Back2Byte Interactive. Todos os direitos reservados.
+Este projeto é propriedade intelectual da Back2Byte Interactive. Todos os direitos reservados.
