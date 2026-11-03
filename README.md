@@ -7,7 +7,7 @@ Website institucional da Back2Byte Interactive, holding B2B especializada em eng
 - `index.html`: estrutura semântica e conteúdo inicial em português.
 - `styles.css`: identidade visual, temas escuro/claro, componentes e layouts responsivos.
 - `script.js`: alternância de idioma e tema, navegação móvel, abas técnicas, animações e formulário de contato.
-- `content.json`: metadados e traduções em português e inglês.
+- `content.json`: metadados e traduções em português, inglês e espanhol.
 - `assets/`: logotipos e espaço para imagens que serão adicionadas ao site.
 
 ## Visualização local
@@ -18,7 +18,7 @@ O formulário de contato prepara uma mensagem e abre o aplicativo de e-mail conf
 
 ## Conteúdo e identidade
 
-Edite os textos em `content.json`, mantendo as mesmas chaves nas seções `pt` e `en`. As cores e os estilos globais estão definidos como propriedades CSS em `:root`, em `styles.css`. O tema escuro é o padrão; o controle no cabeçalho alterna para o tema claro.
+Edite os textos em `content.json`, mantendo as mesmas chaves nas seções `pt`, `en` e `es`. Ao acessar a raiz do site, o navegador é direcionado para a versão correspondente ao primeiro idioma compatível das preferências do navegador; se nenhuma preferência for português, espanhol ou inglês, a versão em inglês é usada. As rotas `/pt/`, `/es/` e `/en/` continuam disponíveis diretamente. As cores e os estilos globais estão definidos como propriedades CSS em `:root`, em `styles.css`. O tema escuro é o padrão; o controle no cabeçalho alterna para o tema claro.
 
 ## Licença
 

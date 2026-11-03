@@ -1,3 +1,19 @@
+function getBrowserLanguage() {
+  const preferredLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+  for (const locale of preferredLanguages) {
+    const language = locale?.split("-")[0].toLowerCase();
+    if (language === "pt" || language === "es" || language === "en") return language;
+  }
+  return "en";
+}
+
+const pathname = (window.location.pathname || "/").toLowerCase();
+if (pathname === "/" || pathname === "/index.html") {
+  const localePaths = { en: "/en/", es: "/es/", pt: "/pt/" };
+  const targetPath = localePaths[getBrowserLanguage()];
+  window.location.replace(`${targetPath}${window.location.search}${window.location.hash}`);
+}
+
 document.documentElement.classList.add("js");
 
 const languageButtons = [...document.querySelectorAll(".language-toggle")];
@@ -46,7 +62,7 @@ function setSeoMetadata(language) {
     }
   };
 
-  const metadata = seoByLanguage[language] || seoByLanguage.pt;
+  const metadata = seoByLanguage[language] || seoByLanguage.en;
   document.title = metadata.title;
 
   const descriptionMeta = document.querySelector('meta[name="description"]');
