@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://back2byte.com/sitemap.xml
