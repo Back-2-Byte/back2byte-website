@@ -1,7 +1,11 @@
 const arcadeAccent = "#00ff66";
+const arcadeShade = "#00b348";
 const arcadeMuted = "#8a99ad";
-const arcadeRed = "#ff3366";
-const arcadeBackground = "#080d11";
+const arcadeBackground = "#07130b";
+
+function arcadeTranslation(key, fallback) {
+  return window.back2byteTranslate?.(key) || fallback;
+}
 
 function createArcadeParticles(context) {
   const particles = [];
@@ -72,10 +76,17 @@ function stopArcadeGames(except) {
   window.back2byteActiveGame = activeKeyboardGame;
 }
 
-function setArcadeStatus(id, value) {
+function setArcadeStatus(id, key, fallback) {
   const status = document.getElementById(id);
-  if (status) status.textContent = value;
+  if (!status) return;
+  status.dataset.gameStatus = key;
+  status.textContent = arcadeTranslation(key, fallback);
 }
+window.back2byteRefreshArcade = () => {
+  document.querySelectorAll(".arcade-status[data-game-status]").forEach((status) => {
+    status.textContent = arcadeTranslation(status.dataset.gameStatus, status.textContent);
+  });
+};
 
 function initializePong() {
   const surface = getArcadeContext("pongCanvas");
@@ -106,7 +117,7 @@ function initializePong() {
     context.setLineDash([]);
     context.fillStyle = arcadeAccent;
     context.fillRect(paddle.x, paddle.y, paddle.width, paddle.height);
-    context.fillStyle = "#f4f6f1";
+    context.fillStyle = arcadeShade;
     context.fillRect(cpu.x, cpu.y, cpu.width, cpu.height);
     context.fillRect(ball.x - ball.size / 2, ball.y - ball.size / 2, ball.size, ball.size);
     particles.draw();
@@ -160,7 +171,7 @@ function initializePong() {
     ball.vy = 115;
     scoreDisplay.textContent = "0";
     cpuDisplay.textContent = "0";
-    setArcadeStatus("pongStatus", "JOGANDO");
+    setArcadeStatus("pongStatus", "game.playing", "JOGANDO");
     previousTime = performance.now();
     cancelAnimationFrame(frameId);
     frameId = requestAnimationFrame(tick);
@@ -169,7 +180,7 @@ function initializePong() {
   function stop() {
     running = false;
     cancelAnimationFrame(frameId);
-    setArcadeStatus("pongStatus", "PRONTO");
+    setArcadeStatus("pongStatus", "game.ready", "PRONTO");
   }
 
   const button = document.querySelector('[data-start-game="pong"]');
@@ -208,7 +219,7 @@ function initializeBreakout() {
     bricks = [];
     for (let row = 0; row < 4; row += 1) {
       for (let column = 0; column < 10; column += 1) {
-        bricks.push({ x: 20 + column * 44, y: 28 + row * 22, width: 36, height: 12, active: true, color: row % 2 ? arcadeAccent : "#24c9d6" });
+        bricks.push({ x: 20 + column * 44, y: 28 + row * 22, width: 36, height: 12, active: true, color: row % 2 ? arcadeAccent : arcadeShade });
       }
     }
   }
@@ -230,10 +241,10 @@ function initializeBreakout() {
     particles.draw();
   }
 
-  function end(status) {
+  function end(statusKey, fallback) {
     running = false;
     cancelAnimationFrame(frameId);
-    setArcadeStatus("breakoutStatus", status);
+    setArcadeStatus("breakoutStatus", statusKey, fallback);
   }
 
   function tick(time) {
@@ -261,7 +272,7 @@ function initializeBreakout() {
       lives -= 1;
       livesDisplay.textContent = String(lives);
       if (!lives) {
-        end("FIM DE JOGO");
+        end("game.over", "FIM DE JOGO");
         draw();
         return;
       }
@@ -271,7 +282,7 @@ function initializeBreakout() {
       ball.vy = -200;
     }
     if (bricks.every((brick) => !brick.active)) {
-      end("VOCÊ VENCEU!");
+      end("game.victory", "VOCÊ VENCEU!");
       draw();
       return;
     }
@@ -292,7 +303,7 @@ function initializeBreakout() {
     livesDisplay.textContent = "3";
     createBricks();
     running = true;
-    setArcadeStatus("breakoutStatus", "JOGANDO");
+    setArcadeStatus("breakoutStatus", "game.playing", "JOGANDO");
     previousTime = performance.now();
     cancelAnimationFrame(frameId);
     frameId = requestAnimationFrame(tick);
@@ -301,7 +312,7 @@ function initializeBreakout() {
   function stop() {
     running = false;
     cancelAnimationFrame(frameId);
-    setArcadeStatus("breakoutStatus", "PRONTO");
+    setArcadeStatus("breakoutStatus", "game.ready", "PRONTO");
   }
 
   document.querySelector('[data-start-game="breakout"]').addEventListener("click", start);
@@ -352,7 +363,7 @@ function initializeDino() {
     context.fillRect(dino.x + 17, dino.y + 7, 4, 4);
     context.fillRect(dino.x - 3, ground - 5, 9, 5);
     context.fillRect(dino.x + 16, ground - 5, 9, 5);
-    context.fillStyle = arcadeRed;
+    context.fillStyle = arcadeShade;
     obstacles.forEach((obstacle) => context.fillRect(obstacle.x, ground - obstacle.height, obstacle.width, obstacle.height));
     particles.draw();
   }
@@ -368,7 +379,7 @@ function initializeDino() {
   function end() {
     running = false;
     cancelAnimationFrame(frameId);
-    setArcadeStatus("dinoStatus", "FIM DE JOGO");
+    setArcadeStatus("dinoStatus", "game.over", "FIM DE JOGO");
     record = saveArcadeRecord(recordKey, Math.floor(score));
     recordDisplay.textContent = String(record);
     draw();
@@ -401,7 +412,7 @@ function initializeDino() {
       dino.y + dino.height > ground - obstacle.height
     );
     if (collision) {
-      particles.burst(dino.x + dino.width / 2, dino.y + dino.height / 2, arcadeRed);
+      particles.burst(dino.x + dino.width / 2, dino.y + dino.height / 2, arcadeAccent);
       end();
       return;
     }
@@ -420,7 +431,7 @@ function initializeDino() {
     dino.jumping = false;
     scoreDisplay.textContent = "0";
     running = true;
-    setArcadeStatus("dinoStatus", "CORRENDO");
+    setArcadeStatus("dinoStatus", "game.playing", "CORRENDO");
     previousTime = performance.now();
     cancelAnimationFrame(frameId);
     frameId = requestAnimationFrame(tick);
@@ -429,7 +440,7 @@ function initializeDino() {
   function stop() {
     running = false;
     cancelAnimationFrame(frameId);
-    setArcadeStatus("dinoStatus", "PRONTO");
+    setArcadeStatus("dinoStatus", "game.ready", "PRONTO");
   }
 
   document.querySelector('[data-start-game="dino"]').addEventListener("click", start);
@@ -485,7 +496,7 @@ function initializePacman() {
     }
     score = 0;
     player = { x: 1, y: 1, direction: "right", next: "right" };
-    ghosts = [{ x: 18, y: 1, color: arcadeRed }, { x: 18, y: 10, color: "#b487ff" }];
+    ghosts = [{ x: 18, y: 1, color: arcadeAccent }, { x: 18, y: 10, color: arcadeShade }];
     steps = 0;
     scoreDisplay.textContent = "0";
     pelletDisplay.textContent = String(pellets.size);
@@ -496,19 +507,19 @@ function initializePacman() {
     context.fillRect(0, 0, canvas.width, canvas.height);
     walls.forEach((position) => {
       const [x, y] = position.split(",").map(Number);
-      context.fillStyle = "#152d40";
+      context.fillStyle = "#0c2816";
       context.fillRect(x * tile + 2, y * tile + 2, tile - 4, tile - 4);
-      context.strokeStyle = "rgba(36, 201, 214, .18)";
+      context.strokeStyle = "rgba(0, 255, 102, .18)";
       context.strokeRect(x * tile + 3, y * tile + 3, tile - 6, tile - 6);
     });
     pellets.forEach((position) => {
       const [x, y] = position.split(",").map(Number);
-      context.fillStyle = "#e7f2ff";
+      context.fillStyle = arcadeShade;
       context.beginPath();
       context.arc(x * tile + tile / 2, y * tile + tile / 2, 2.3, 0, Math.PI * 2);
       context.fill();
     });
-    context.fillStyle = "#ffe14a";
+    context.fillStyle = arcadeAccent;
     context.beginPath();
     context.arc(player.x * tile + tile / 2, player.y * tile + tile / 2, 9, .18, Math.PI * 1.82);
     context.lineTo(player.x * tile + tile / 2, player.y * tile + tile / 2);
@@ -522,17 +533,17 @@ function initializePacman() {
       context.lineTo(ghost.x * tile + 3, ghost.y * tile + tile - 3);
       context.closePath();
       context.fill();
-      context.fillStyle = "#fff";
+      context.fillStyle = "#07130b";
       context.fillRect(ghost.x * tile + 7, ghost.y * tile + 8, 3, 4);
       context.fillRect(ghost.x * tile + 14, ghost.y * tile + 8, 3, 4);
     });
     particles.draw();
   }
 
-  function end(status) {
+  function end(statusKey, fallback) {
     running = false;
     window.clearInterval(timerId);
-    setArcadeStatus("pacmanStatus", status);
+    setArcadeStatus("pacmanStatus", statusKey, fallback);
   }
 
   function step() {
@@ -548,7 +559,7 @@ function initializePacman() {
       score += 10;
       scoreDisplay.textContent = String(score);
       pelletDisplay.textContent = String(pellets.size);
-      particles.burst(player.x * tile + tile / 2, player.y * tile + tile / 2, "#ffe14a");
+      particles.burst(player.x * tile + tile / 2, player.y * tile + tile / 2, arcadeAccent);
     }
     steps += 1;
     ghosts.forEach((ghost) => {
@@ -568,12 +579,12 @@ function initializePacman() {
     });
     if (ghosts.some((ghost) => ghost.x === player.x && ghost.y === player.y)) {
       draw();
-      end("PEGARAM VOCÊ");
+      end("arcade.caught", "PEGARAM VOCÊ");
       return;
     }
     if (!pellets.size) {
       draw();
-      end("LABIRINTO LIMPO!");
+      end("arcade.cleared", "LABIRINTO LIMPO!");
       return;
     }
     draw();
@@ -584,7 +595,7 @@ function initializePacman() {
     window.clearInterval(timerId);
     reset();
     running = true;
-    setArcadeStatus("pacmanStatus", "JOGANDO");
+    setArcadeStatus("pacmanStatus", "game.playing", "JOGANDO");
     draw();
     timerId = window.setInterval(step, 145);
   }
@@ -592,7 +603,7 @@ function initializePacman() {
   function stop() {
     running = false;
     window.clearInterval(timerId);
-    setArcadeStatus("pacmanStatus", "PRONTO");
+    setArcadeStatus("pacmanStatus", "game.ready", "PRONTO");
   }
 
   document.querySelector('[data-start-game="pacman"]').addEventListener("click", start);

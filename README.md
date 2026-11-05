@@ -4,13 +4,14 @@ Website institucional da Back2Byte Interactive, holding B2B especializada em eng
 
 ## Estrutura
 
-- `index.html`: página institucional única, com navegação por seções para apresentação, serviços, engenharia, experiência, parceiros e contato.
+- `index.html`: página institucional em português, com navegação por seções para apresentação, serviços, engenharia, experiência, parceiros e contato.
+- `pt/index.html`, `en/index.html` e `es/index.html`: páginas institucionais indexáveis com URLs canônicas, metadados e conteúdo no idioma correspondente.
 - `havefun/index.html`: página independente de minigames (Snake, Pong, Breakout, Dino Game e Pac-Man).
-- `assets/css/styles.css`: temas, componentes, animações e layouts responsivos do site e do arcade.
+- `assets/css/styles.css`: tokens de design (cores, tipografia, espaçamento) para os temas escuro e claro, componentes, animações e layouts responsivos do site e do arcade.
 - `assets/js/script.js`: alternância de idioma e tema, navegação móvel, abas técnicas, animações e formulário de contato.
 - `assets/js/havefun.js`: lógica dos jogos Pong, Breakout, Dino Game e Pac-Man.
-- `assets/data/content.json`: metadados, strings de interface e traduções em português, inglês e espanhol.
-- `assets/images/`: logotipos e imagens do site.
+- `assets/data/content.json`: metadados e strings de interface em português, inglês e espanhol; as páginas localizadas carregam esse arquivo para alternar idioma e os seus textos iniciais também são renderizados na página HTML correspondente.
+- `assets/images/`: logotipos e imagens do site. As páginas usam as versões redimensionadas (`logo_*-sm.png`, `title_*-md.png`); os arquivos originais em alta resolução ficam como fonte e para o `og:image`.
 - `robots.txt` e `sitemap.xml`: permitem o rastreamento e enumeram as rotas públicas.
 
 ## Visualização local
@@ -22,6 +23,8 @@ O formulário de contato prepara uma mensagem e abre o aplicativo de e-mail conf
 ## Conteúdo e identidade
 
 A página inicial concentra o conteúdo institucional e usa âncoras para navegar entre seções. `/havefun/` é uma página separada para os jogos. Snake e Dino Game salvam os recordes no navegador. Os jogos iniciam sob demanda e aceitam teclado e, quando aplicável, controles touch. O tema escuro é o padrão e a preferência de tema também é salva localmente.
+
+As páginas institucionais estão disponíveis em `/pt/`, `/en/` e `/es/`. Ao alterar traduções no JSON, mantenha também os textos iniciais e os metadados das páginas HTML localizadas em sincronia.
 
 O contato oficial é `contact@back2byte.com`. Os links oficiais do [LinkedIn](https://www.linkedin.com/company/back2byte), [Instagram](https://www.instagram.com/back2byte_b2b/) e [YouTube](https://www.youtube.com/@back2byte_b2b) aparecem no cabeçalho e na seção de contato.
 
