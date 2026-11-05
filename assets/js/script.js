@@ -109,6 +109,10 @@ languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selectedLanguage = button.dataset.language;
     const pathParts = (window.location.pathname || "/").split("/").filter(Boolean);
+    if (pathParts.length === 0 || pathParts.includes("havefun")) {
+      applyLanguage(selectedLanguage);
+      return;
+    }
     const page = pathParts.find((part) => !["en", "es", "pt"].includes(part));
     const targetPath = page
       ? selectedLanguage === "pt" ? `/${page}/` : `/${page}/${selectedLanguage}/`
@@ -435,10 +439,21 @@ function initializeSnakeGame() {
     window.clearInterval(intervalId);
     intervalId = 0;
     isRunning = false;
+    if (window.back2byteActiveGame === "snake") window.back2byteActiveGame = "";
     overlay.hidden = false;
     overlay.textContent = `${getTranslation("game.over") || "GAME OVER"} · ${score}`;
     refreshLabels();
   }
+
+  window.back2byteSnakePause = () => {
+    if (!isRunning) return;
+    window.clearInterval(intervalId);
+    intervalId = 0;
+    isRunning = false;
+    overlay.hidden = false;
+    overlay.textContent = getTranslation("game.instructions") || "Clique em Jogar para começar";
+    refreshLabels();
+  };
 
   function move() {
     direction = nextDirection;
@@ -491,6 +506,7 @@ function initializeSnakeGame() {
     score = 0;
     scoreDisplay.textContent = "0";
     isRunning = true;
+    window.back2byteActiveGame = "snake";
     hasTurned = false;
     placeFood();
     overlay.hidden = true;
@@ -505,6 +521,7 @@ function initializeSnakeGame() {
   });
   window.addEventListener("keydown", (event) => {
     if (!isRunning || event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable='true']")) return;
+    if (window.back2byteActiveGame && window.back2byteActiveGame !== "snake") return;
     const directions = {
       ArrowUp: "up", w: "up", W: "up",
       ArrowDown: "down", s: "down", S: "down",
