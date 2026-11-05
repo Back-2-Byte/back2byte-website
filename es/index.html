@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es-ES">
 <head>
   <meta charset="utf-8">
@@ -8,7 +8,7 @@
   <meta name="robots" content="index, follow">
   <title>Back2Byte Interactive | Desarrollo de juegos y soluciones B2B</title>
   <link rel="canonical" href="https://back2byte.com/es/">
-  <link rel="alternate" hreflang="pt-BR" href="https://back2byte.com/pt/">
+  <link rel="alternate" hreflang="pt-BR" href="https://back2byte.com/">
   <link rel="alternate" hreflang="en" href="https://back2byte.com/en/">
   <link rel="alternate" hreflang="es" href="https://back2byte.com/es/">
   <link rel="alternate" hreflang="x-default" href="https://back2byte.com/">
@@ -17,19 +17,17 @@
   <meta property="og:title" content="Back2Byte Interactive | Desarrollo de juegos y soluciones B2B">
   <meta property="og:description" content="Desarrollo de juegos, co-development, porting, optimizaci&#243;n de rendimiento y gamificaci&#243;n corporativa. Creamos soluciones interactivas para empresas, publishers y estudios.">
   <meta property="og:url" content="https://back2byte.com/es/">
-  <meta property="og:image" content="https://back2byte.com/assets/images/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://back2byte.com/assets/images/title_white.png">
   <meta property="og:locale" content="es_ES">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Back2Byte Interactive | Desarrollo de juegos y soluciones B2B">
   <meta name="twitter:description" content="Desarrollo de juegos, co-development, porting, optimizaci&#243;n de rendimiento y gamificaci&#243;n corporativa. Creamos soluciones interactivas para empresas, publishers y estudios.">
-  <meta name="twitter:image" content="https://back2byte.com/assets/images/og-image.jpg">
+  <meta name="twitter:image" content="https://back2byte.com/assets/images/title_white.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
-  <script src="../script.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script src="/assets/js/script.js" defer></script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7RT7TSWDYP"></script>
 <script>
@@ -39,6 +37,17 @@
 
   gtag('config', 'G-7RT7TSWDYP');
 </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://back2byte.com/#organization",
+    "name": "Back2Byte Interactive",
+    "url": "https://back2byte.com/",
+    "email": "contact@back2byte.com",
+    "description": "Ingeniería de juegos, co-desarrollo, porting, optimización y gamificación corporativa."
+  }
+  </script>
 
 </head>
 <body>
@@ -49,22 +58,21 @@
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Back2Byte Interactive — inicio">
-      <img src="../assets/Logo 1 Branca.png" alt="" width="42" height="42">
+    <a class="brand" href="/es/" aria-label="Back2Byte Interactive — inicio">
+      <img src="/assets/images/logo_white.png" data-dark-src="/assets/images/logo_white.png" data-light-src="/assets/images/logo_black.png" alt="" width="42" height="42">
       <span class="brand-name">BACK<span>2</span>BYTE<small>INTERACTIVE</small></span>
     </a>
     <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Abrir menú">
       <span></span><span></span>
     </button>
-    <nav class="primary-nav" id="primaryNav" aria-label="Navegación principal">
-      <a href="#solucoes" data-i18n="nav.solutions">Soluciones</a>
-      <a href="#engenharia" data-i18n="nav.expertise">Ingenier&#237;a</a>
-      <a href="#ciclo" data-i18n="nav.cycle">Ciclo continuo</a>
-      <a href="#experiencia" data-i18n="nav.experience">Experiencia</a>
-      <a href="#parceiros" data-i18n="nav.partners">Socios</a>
-      <a href="#cultura" data-i18n="nav.culture">Cultura &amp; I+D</a>
-    </nav>
+    <nav class="primary-nav" id="primaryNav" aria-label="Navegación principal"><a href="/es/" aria-current="page">Inicio</a><a href="/about/es/">Quiénes somos</a><a href="/ourwork/es/">Nuestro trabajo</a><a href="/whygames/es/">Por qué los juegos</a><a href="/partners/es/">Socios</a><a href="/contact/es/">Contacto</a></nav>
     <div class="header-actions">
+      <div class="header-socials" aria-label="Redes sociales">
+        <a href="mailto:contact@back2byte.com" aria-label="Correo electrónico">@</a>
+        <a href="https://www.linkedin.com/company/back2byte" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">in</a>
+        <a href="https://www.instagram.com/back2byte_b2b/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">◎</a>
+        <a href="https://www.youtube.com/@back2byte_b2b" target="_blank" rel="noopener noreferrer" aria-label="YouTube" title="YouTube">▶</a>
+      </div>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambiar a tema claro">
         <span aria-hidden="true">◐</span>
       </button>
@@ -73,245 +81,46 @@
         <button class="language-toggle is-active" id="langToggleEs" data-language="es" type="button" aria-label="Cambiar idioma a español" aria-pressed="true" disabled>ES</button>
         <button class="language-toggle" id="langTogglePt" data-language="pt" type="button" aria-label="Cambiar idioma a portugués" aria-pressed="false" disabled>PT</button>
       </div>
-      <a class="header-cta" href="#contato"><span data-i18n="nav.contact">Hable con el equipo</span><span aria-hidden="true">↗</span></a>
+      <a class="header-cta" href="/contact/es/"><span data-i18n="nav.contact">Hable con el equipo</span><span aria-hidden="true">↗</span></a>
     </div>
   </header>
 
-  <main id="main-content">
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
+  <main id="main-content"><section class="hero" id="inicio" aria-labelledby="hero-title">
       <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-scanline" aria-hidden="true"></div>
-      <div class="hero-copy reveal">
-        <p class="eyebrow"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero.eyebrow">INGENIER&#205;A DE JUEGOS &#183; SOLUCIONES B2B</span></p>
-        <h1 id="hero-title"><span data-i18n="hero.titleStart">Estamos contigo,</span><br><em data-i18n="hero.titleEnd">desde el primer byte.</em></h1>
-        <p class="hero-lead" data-i18n="hero.body">Co-development, porting y gamificaci&#243;n corporativa con rigor t&#233;cnico, previsibilidad y rendimiento desde el prototipo hasta la entrega.</p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#contato"><span data-i18n="hero.primary">Agendar una conversaci&#243;n estrat&#233;gica</span><span aria-hidden="true">↗</span></a>
-          <a class="button button-secondary" href="#solucoes"><span data-i18n="hero.secondary">Conocer soluciones B2B</span><span aria-hidden="true">↓</span></a>
+      <svg class="hero-circuit-art" viewBox="0 0 760 540" fill="none" aria-hidden="true">
+        <path d="M10 80h180l60 60h100l50 50h110M0 160h120l55 55h120l65 65h130M40 360h140l50-50h110l50-50h130M170 500V390l50-50v-90l50-50M430 10v100l50 50v90l50 50v120M700 50H600l-50 50h-80M750 430H640l-60-60v-90" />
+        <path class="circuit-branch" d="M530 280c35-30 65-50 100-50m-72 70c30 0 58 12 82 34m-82-70c14-25 16-49 10-74m-35 142c-12 28-8 56 10 82m-230-13c-28 2-48 18-64 43m91-71c-7-27-1-51 18-72" />
+        <circle cx="620" cy="230" r="5" /><circle cx="640" cy="334" r="5" /><circle cx="648" cy="226" r="4" /><circle cx="307" cy="253" r="5" />
+      </svg>
+      <div class="hero-layout">
+        <div class="hero-copy reveal">
+          <img class="hero-logo" src="/assets/images/title_white.png" data-dark-src="/assets/images/title_white.png" data-light-src="/assets/images/title_black.png" alt="Back2Byte Interactive" width="620" height="349">
+          <p class="eyebrow"><span class="pulse" aria-hidden="true"></span><span data-i18n="hero.eyebrow">INGENIERÍA DE JUEGOS · SOLUCIONES B2B</span></p>
+          <h1 id="hero-title"><span data-i18n="hero.titleStart">TÚ TE ENFOCAS EN EL NEGOCIO.</span><br><em data-i18n="hero.titleEnd">NOSOTROS NOS ENCARGAMOS DE LOS BYTES.</em></h1>
+          <p class="hero-lead" data-i18n="hero.body">Tu socio de ingeniería para estudios y empresas: co-development, porting y experiencias interactivas desde el primer prototipo hasta la entrega.</p>
+          <ul class="hero-proof" aria-label="Tecnologías y plataformas principales"><li>C#</li><li>UNITY</li><li>PC</li><li data-i18n="hero.proof.consoles">CONSOLAS</li><li>WEB</li></ul>
         </div>
-        <ul class="hero-proof" aria-label="Tecnologías y plataformas principales">
-          <li>C#</li><li>UNITY</li><li>PC</li><li data-i18n="hero.proof.consoles">CONSOLAS</li><li>WEB</li>
-        </ul>
-      </div>
-      <div class="hero-game-layer" id="heroGameLayer" aria-hidden="true"></div>
-      <div class="bugs-counter" aria-live="polite" aria-atomic="true"><span id="bugsCount">0</span> <span data-i18n="bugs.label">Bichos devorados</span></div>
-      <a class="scroll-cue" href="#solucoes"><span data-i18n="hero.scroll">DESLIZA PARA EXPLORAR</span><span aria-hidden="true">↓</span></a>
-    </section>
-
-    <section class="section services-section" id="solucoes">
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow" data-i18n="services.eyebrow">LO QUE HACEMOS</p>
-          <h2><span data-i18n="services.titleStart">Soluciones para desaf&#237;os</span><br><em data-i18n="services.titleEnd">que requieren ingenier&#237;a.</em></h2>
-        </div>
-        <p class="section-intro" data-i18n="services.intro">Un enfoque para cada desaf&#237;o: entender el contexto, integrar a las personas correctas y entregar con calidad t&#233;cnica.</p>
-      </div>
-
-      <div class="service-grid">
-        <article class="service-card reveal">
-          <div class="card-topline"><span data-i18n="services.codev.label">COLABORACI&#211;N T&#201;CNICA</span><span aria-hidden="true">{ }</span></div>
-          <p class="service-kicker" data-i18n="services.codev.kicker">PARA ESTUDIOS Y PUBLISHERS</p>
-          <h3><span data-i18n="services.codev.titleStart">Co-development</span><br><span data-i18n="services.codev.titleEnd">y ampliación de equipo</span></h3>
-          <p data-i18n="services.codev.body">Ingenieros senior integrados a tu equipo para desarrollar sistemas, mec&#225;nicas y arquitectura de software con colaboraci&#243;n cercana y alcance alineado.</p>
-          <ul class="tag-list"><li data-i18n="services.codev.tags.unity">Unity / C#</li><li data-i18n="services.codev.tags.architecture">Arquitectura</li><li data-i18n="services.codev.tags.engineering">Ingeniería bajo demanda</li></ul>
-        </article>
-        <article class="service-card reveal">
-          <div class="card-topline"><span data-i18n="services.porting.label">MULTIPLATAFORMA</span><span aria-hidden="true">↗</span></div>
-          <p class="service-kicker" data-i18n="services.porting.kicker">RENDIMIENTO MULTIPLATAFORMA</p>
-          <h3 data-i18n="services.porting.title">Porting &amp; optimizaci&#243;n</h3>
-          <p data-i18n="services.porting.body">Adaptaci&#243;n de juegos para PC, consolas y web con profiling y optimizaci&#243;n para mejorar estabilidad, rendimiento y preparaci&#243;n t&#233;cnica.</p>
-          <ul class="tag-list"><li data-i18n="services.porting.tags.platforms">PC / Consoles</li><li data-i18n="services.porting.tags.profiling">Profiling</li><li data-i18n="services.porting.tags.certification">Certificación</li></ul>
-        </article>
-        <article class="service-card service-card-featured reveal">
-          <div class="card-topline"><span data-i18n="services.gamification.label">EXPERIENCIAS INTERACTIVAS</span><span aria-hidden="true">✳</span></div>
-          <p class="service-kicker" data-i18n="services.gamification.kicker">PARA MARCAS E INDUSTRIAS</p>
-          <h3 data-i18n="services.gamification.title">Gamificaci&#243;n &amp; simuladores</h3>
-          <p data-i18n="services.gamification.body">Experiencias interactivas para marketing, eventos y entrenamiento corporativo, desde advergames hasta simulaciones industriales.</p>
-          <ul class="tag-list"><li data-i18n="services.gamification.tags.advergames">Advergames</li><li data-i18n="services.gamification.tags.training">Formación</li><li data-i18n="services.gamification.tags.simulation">Simulación 3D</li></ul>
-        </article>
-      </div>
-      <p class="delivery-note reveal"><span aria-hidden="true">↳</span> <span data-i18n="services.delivery">Proyectos integrales, co-desarrollo o apoyo t&#233;cnico a medida.</span></p>
-    </section>
-
-    <section class="section engineering-section" id="engenharia">
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow" data-i18n="expertise.eyebrow">CAPACIDAD T&#201;CNICA</p>
-          <h2><span data-i18n="expertise.titleStart">Rigor de ingenier&#237;a.</span><br><em data-i18n="expertise.titleEnd">Entrega previsible.</em></h2>
-        </div>
-        <p class="section-intro" data-i18n="expertise.intro">Decisiones t&#233;cnicas conectadas con los objetivos del proyecto, comunicaci&#243;n transparente y atenci&#243;n a los detalles que marcan la diferencia en producci&#243;n.</p>
-      </div>
-      <div class="expertise-layout reveal">
-        <div class="tab-list" role="tablist" aria-label="Especialidades técnicas">
-          <button class="expertise-tab is-active" id="tab-architecture" type="button" role="tab" aria-selected="true" aria-controls="panel-architecture" data-tab="architecture"><span data-i18n="expertise.tabs.architecture">Arquitectura C# y Unity</span><span aria-hidden="true">↗</span></button>
-          <button class="expertise-tab" id="tab-porting" type="button" role="tab" aria-selected="false" aria-controls="panel-porting" tabindex="-1" data-tab="porting"><span data-i18n="expertise.tabs.porting">Porting multiplataforma</span><span aria-hidden="true">↗</span></button>
-          <button class="expertise-tab" id="tab-optimization" type="button" role="tab" aria-selected="false" aria-controls="panel-optimization" tabindex="-1" data-tab="optimization"><span data-i18n="expertise.tabs.optimization">Optimizaci&#243;n del rendimiento</span><span aria-hidden="true">↗</span></button>
-          <button class="expertise-tab" id="tab-delivery" type="button" role="tab" aria-selected="false" aria-controls="panel-delivery" tabindex="-1" data-tab="delivery"><span data-i18n="expertise.tabs.delivery">Entrega previsible</span><span aria-hidden="true">↗</span></button>
-        </div>
-        <div class="tab-panels">
-          <article class="expertise-panel is-active" id="panel-architecture" role="tabpanel" aria-labelledby="tab-architecture" data-panel="architecture">
-            <p class="panel-label">C# / UNITY / DOTS</p><h3 data-i18n="expertise.content.architecture.title">Bases s&#243;lidas para proyectos complejos.</h3>
-            <p data-i18n="expertise.content.architecture.body">La arquitectura desacoplada, los patrones de dise&#241;o y el cuidado del uso de memoria permiten crear sistemas que evolucionan con las necesidades del producto.</p>
-            <div class="code-window" aria-label="Ejemplo de arquitectura de sistemas"><div class="window-bar"><i></i><i></i><i></i><span>architecture.cs</span></div><code><span>01</span> <b>systems</b>.design = <em>"scalable"</em>;<br><span>02</span> <b>memory</b>.profile();<br><span>03</span> <b>delivery</b>.validate();</code></div>
-          </article>
-          <article class="expertise-panel" id="panel-porting" role="tabpanel" aria-labelledby="tab-porting" data-panel="porting" hidden>
-            <p class="panel-label">PC / CONSOLES / WEB</p><h3 data-i18n="expertise.content.porting.title">Un juego, listo para nuevos destinos.</h3>
-            <p data-i18n="expertise.content.porting.body">Adaptamos la base t&#233;cnica y los procesos de compilaci&#243;n a las particularidades de cada plataforma, considerando la estabilidad y los requisitos de publicaci&#243;n.</p>
-            <div class="code-window" aria-label="Plataformas compatibles"><div class="window-bar"><i></i><i></i><i></i><span>platforms.config</span></div><code><span>01</span> target = [<em>"PC"</em>, <em>"console"</em>];<br><span>02</span> build.validate(target);<br><span>03</span> release.ready = <b>true</b>;</code></div>
-          </article>
-          <article class="expertise-panel" id="panel-optimization" role="tabpanel" aria-labelledby="tab-optimization" data-panel="optimization" hidden>
-            <p class="panel-label">CPU / GPU / MEMORY</p><h3 data-i18n="expertise.content.optimization.title">Rendimiento medido, no supuesto.</h3>
-            <p data-i18n="expertise.content.optimization.body">El profiling basado en datos permite encontrar cuellos de botella, reducir el coste de procesamiento y lograr una experiencia m&#225;s fluida en distintos equipos.</p>
-            <div class="code-window" aria-label="Proceso de optimización"><div class="window-bar"><i></i><i></i><i></i><span>performance.log</span></div><code><span>01</span> profiler.capture();<br><span>02</span> bottlenecks.resolve();<br><span>03</span> <b>performance</b>.measure();</code></div>
-          </article>
-          <article class="expertise-panel" id="panel-delivery" role="tabpanel" aria-labelledby="tab-delivery" data-panel="delivery" hidden>
-            <p class="panel-label" data-i18n="expertise.content.delivery.label">ALCANCE / HITOS / TRANSPARENCIA</p><h3 data-i18n="expertise.content.delivery.title">Claridad para decidir y avanzar.</h3>
-            <p data-i18n="expertise.content.delivery.body">Acordamos el alcance y los hitos, damos visibilidad al progreso y alineamos continuamente contigo las prioridades del proyecto.</p>
-            <div class="code-window" aria-label="Etapas de entrega"><div class="window-bar"><i></i><i></i><i></i><span>delivery.plan</span></div><code><span>01</span> scope.define();<br><span>02</span> milestones.track();<br><span>03</span> partner.update();</code></div>
-          </article>
+        <div class="hero-side reveal">
+          <section class="snake-card" aria-labelledby="snake-title">
+            <div class="snake-heading"><h2 id="snake-title" data-i18n="game.title">BYTE SNAKE</h2><span class="game-status" id="snakeStatus" aria-live="polite" data-i18n="game.ready">LISTO</span></div>
+            <div class="snake-board"><canvas id="snakeCanvas" width="480" height="280" aria-label="Juego de la serpiente Back2Byte"></canvas><p class="snake-overlay" id="snakeOverlay" data-i18n="game.instructions">Pulsa Jugar y usa las flechas o WASD</p></div>
+            <div class="snake-scoreboard"><span><span data-i18n="game.score">PUNTOS</span><strong id="snakeScore">0</strong></span><span><span data-i18n="game.highscore">RÉCORD</span><strong id="snakeHighscore">0</strong></span></div>
+            <div class="snake-controls" aria-label="Controles de la serpiente"><button type="button" data-direction="up" aria-label="Arriba">↑</button><button type="button" data-direction="left" aria-label="Izquierda">←</button><button type="button" data-direction="down" aria-label="Abajo">↓</button><button type="button" data-direction="right" aria-label="Derecha">→</button></div>
+            <button class="button button-primary snake-play" id="snakePlay" type="button" data-i18n="game.play">JUGAR</button>
+          </section>
+          <div class="hero-game-cta"><p data-i18n="game.cta">¿Qué podemos construir juntos?</p><a class="text-link" href="/contact/es/"><span data-i18n="hero.primary">Agendar una conversación estratégica</span><span aria-hidden="true">↗</span></a></div>
         </div>
       </div>
-    </section>
-
-    <section class="section experience-section" id="experiencia">
-      <div class="section-heading reveal">
-        <div><p class="eyebrow" data-i18n="experience.eyebrow">EXPERIENCIA DEL EQUIPO</p><h2><span data-i18n="experience.titleStart">Trabajo que cruza</span><br><em data-i18n="experience.titleEnd">fronteras y plataformas.</em></h2></div>
-        <p class="section-intro" data-i18n="experience.intro">La experiencia del equipo se ha construido en proyectos de distintas escalas y segmentos de la industria de los videojuegos.</p>
-      </div>
-      <div class="project-grid">
-        <article class="project-card reveal"><h3>God of War:<br>Sons of Sparta</h3><span class="project-mark" aria-hidden="true">↗</span></article>
-        <article class="project-card reveal"><h3>WrestleQuest</h3><span class="project-mark" aria-hidden="true">↗</span></article>
-        <article class="project-card reveal"><h3>Backyard Baseball</h3><span class="project-mark" aria-hidden="true">↗</span></article>
-        <article class="project-card reveal"><h3>Dash & Swing</h3><span class="project-mark" aria-hidden="true">↗</span></article>
-      </div>
-      <p class="project-disclaimer" data-i18n="experience.note">Proyectos que forman parte de la trayectoria profesional del equipo.</p>
-    </section>
-
-    <section class="why-section" id="por-que-jogos">
-      <div class="why-copy reveal">
-        <p class="eyebrow" data-i18n="why.eyebrow">INTERACTIVIDAD PARA LOS NEGOCIOS</p>
-        <h2><span data-i18n="why.titleStart">Tu marca no solo tiene que verse.</span><br><em data-i18n="why.titleEnd">Tambi&#233;n puede sentirse.</em></h2>
-        <p class="why-intro" data-i18n="why.body">Los juegos transforman la comunicaci&#243;n en participaci&#243;n. En lugar de limitarse a recibir un mensaje, las personas interact&#250;an con &#233;l; una oportunidad para que las marcas creen experiencias memorables y relevantes.</p>
-        <a class="text-link" href="#contato"><span data-i18n="why.link">Pensemos en la experiencia ideal</span><span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="benefit-list reveal">
-        <article><div><h3 data-i18n="why.benefits.engagement.title">Diferenciaci&#243;n</h3><p data-i18n="why.benefits.engagement.body">Las experiencias interactivas ayudan a que tu marca destaque y ocupe un lugar propio en la memoria de las personas.</p></div></article>
-        <article><div><h3 data-i18n="why.benefits.learning.title">Interacci&#243;n</h3><p data-i18n="why.benefits.learning.body">El p&#250;blico deja de ser espectador y empieza a participar, explorar e involucrarse con tu mensaje.</p></div></article>
-        <article><div><h3 data-i18n="why.benefits.insight.title">Emoci&#243;n</h3><p data-i18n="why.benefits.insight.body">Una experiencia que despierta emociones puede recordarse, compartirse e inspirar a otras personas.</p></div></article>
-      </div>
-    </section>
-
-    <section class="section cycle-section" id="ciclo">
-      <div class="section-heading reveal">
-        <div>
-          <p class="eyebrow" data-i18n="cycle.eyebrow">UNA ALIANZA QUE CONTIN&#218;A</p>
-          <h2><span data-i18n="cycle.titleStart">Desde el primer prototipo</span><br><em data-i18n="cycle.titleEnd">hasta cada pr&#243;ximo paso.</em></h2>
-        </div>
-        <p class="section-intro" data-i18n="cycle.intro">No queremos simplemente entregar un producto y dejarte por tu cuenta. Trabajamos contigo durante todo el ciclo, aprendiendo, construyendo y evolucionando juntos.</p>
-      </div>
-      <div class="cycle-track">
-        <article class="cycle-card reveal">
-          <span class="cycle-icon" aria-hidden="true">⌁</span>
-          <h3 data-i18n="cycle.stages.prototype.title">Prototipado</h3>
-          <p data-i18n="cycle.stages.prototype.body">Convertimos ideas en realidad, exploramos posibilidades y validamos caminos antes de invertir en el desarrollo completo.</p>
-        </article>
-        <article class="cycle-card reveal">
-          <span class="cycle-icon" aria-hidden="true">{ }</span>
-          <h3 data-i18n="cycle.stages.development.title">Desarrollo</h3>
-          <p data-i18n="cycle.stages.development.body">Construimos la soluci&#243;n junto con tu equipo, tomando decisiones t&#233;cnicas alineadas con los objetivos de tu marca y tu proyecto.</p>
-        </article>
-        <article class="cycle-card reveal">
-          <span class="cycle-icon" aria-hidden="true">⌘</span>
-          <h3 data-i18n="cycle.stages.validation.title">Porting y QA</h3>
-          <p data-i18n="cycle.stages.validation.body">Preparamos la experiencia para distintas plataformas y probamos su calidad, estabilidad y rendimiento antes del lanzamiento.</p>
-        </article>
-        <article class="cycle-card reveal">
-          <span class="cycle-icon" aria-hidden="true">↗</span>
-          <h3 data-i18n="cycle.stages.launch.title">Entrega y evoluci&#243;n</h3>
-          <p data-i18n="cycle.stages.launch.body">Acompa&#241;amos el lanzamiento, observamos qu&#233; funciona y planificamos contigo los pr&#243;ximos pasos.</p>
-        </article>
-        <article class="cycle-card reveal">
-          <span class="cycle-icon" aria-hidden="true">⟳</span>
-          <h3 data-i18n="cycle.stages.support.title">Soporte continuo</h3>
-          <p data-i18n="cycle.stages.support.body">Seguimos disponibles para hacer ajustes, resolver nuevos desaf&#237;os y mantener la experiencia relevante despu&#233;s del lanzamiento.</p>
-        </article>
-      </div>
-      <p class="cycle-promise reveal"><span class="pulse" aria-hidden="true"></span><span data-i18n="cycle.promise">Tu proyecto no termina con la entrega. Nuestra colaboraci&#243;n tampoco.</span></p>
-    </section>
-
-    <section class="game-dev-section" id="game-dev">
-      <div class="game-dev-copy reveal">
-        <p class="eyebrow" data-i18n="gameDev.eyebrow">PARA QUIENES HACEN JUEGOS</p>
-        <h2><span data-i18n="gameDev.titleStart">Conoces la complejidad.</span><br><em data-i18n="gameDev.titleEnd">Te ayudamos a simplificarla.</em></h2>
-        <p class="game-dev-intro" data-i18n="gameDev.body">Crear un juego requiere muchas especialidades y cada etapa presenta sus propios desaf&#237;os. Nuestro equipo t&#233;cnico tiene experiencia en distintas &#225;reas del desarrollo y puede integrarse con el tuyo para brindar apoyo donde haga falta.</p>
-        <p class="game-dev-promise" data-i18n="gameDev.promise">Sea cual sea la etapa en la que est&#233;s, entenderemos lo que necesitas y encontraremos juntos la mejor forma de ayudarte.</p>
-        <a class="button button-primary" href="#contato"><span data-i18n="gameDev.cta">Cuenta con Back2Byte</span><span aria-hidden="true">↗</span></a>
-      </div>
-      <div class="game-dev-services reveal">
-        <p class="game-dev-label" data-i18n="gameDev.supportLabel">APOYO T&#201;CNICO DONDE LO NECESITAS</p>
-        <ul class="support-list">
-          <li data-i18n="gameDev.support.testing">Pruebas y calidad</li>
-          <li data-i18n="gameDev.support.porting">Porting entre plataformas</li>
-          <li data-i18n="gameDev.support.performance">Optimizaci&#243;n y rendimiento</li>
-          <li data-i18n="gameDev.support.codev">Co-development e ingenier&#237;a</li>
-          <li data-i18n="gameDev.support.architecture">Arquitectura y sistemas</li>
-          <li data-i18n="gameDev.support.production">Apoyo a la producci&#243;n</li>
-        </ul>
-        <p class="game-dev-footnote" data-i18n="gameDev.footnote">La colaboraci&#243;n se adapta a la etapa, el alcance y las necesidades de tu proyecto.</p>
-      </div>
-    </section>
-
-    <section class="section partners-section" id="parceiros">
-      <div class="section-heading reveal">
-        <div><p class="eyebrow" data-i18n="partners.eyebrow">HUB COLABORATIVO</p><h2><span data-i18n="partners.titleStart">Una red dise&#241;ada para</span><br><em data-i18n="partners.titleEnd">sumar capacidades.</em></h2></div>
-        <p class="section-intro" data-i18n="partners.intro">Un ecosistema colaborativo de especialistas ampl&#237;a la capacidad de producci&#243;n y conecta cada proyecto con los socios adecuados.</p>
-      </div>
-      <div class="partner-grid">
-        <article class="partner-card reveal"><span class="partner-symbol">JP<span>↗</span></span><div><h3>JP Desenvolvimento</h3><p data-i18n="partners.jp">Software empresarial, aplicaciones web e infraestructura.</p></div></article>
-        <article class="partner-card reveal"><span class="partner-symbol">ID<span>↗</span></span><div><h3>Inominatum Digital</h3><p data-i18n="partners.inominatum">Juegos originales y experiencias para PC y consolas.</p></div></article>
-        <article class="partner-card reveal"><span class="partner-symbol">ST<span>↗</span></span><div><h3>Strafe Theory</h3><p data-i18n="partners.strafe">Desarrollo m&#243;vil y prototipado &#225;gil.</p></div></article>
-        <article class="partner-card reveal"><span class="partner-symbol">HK<span>↗</span></span><div><h3>Hitkill Studios</h3><p data-i18n="partners.hitkill">Estudio asociado integrado en el hub colaborativo.</p></div></article>
-      </div>
-    </section>
-
-    <section class="culture-section" id="cultura">
-      <div class="culture-art reveal" aria-hidden="true">
-        <div class="culture-frame"><span data-i18n="culture.art.label">INVESTIGACIÓN / DESARROLLO</span><strong>NO<br>DEAD<br>ENDS<span>.</span></strong><i data-i18n="culture.art.project">PROYECTO INTERNO / 001</i></div>
-        <span class="culture-coordinate" data-i18n="culture.art.coordinates">B2B / I+D / 2026</span>
-      </div>
-      <div class="culture-copy reveal">
-        <p class="eyebrow" data-i18n="culture.eyebrow">CULTURA E I+D</p>
-        <h2><span data-i18n="culture.titleStart">Pasi&#243;n por los juegos.</span><br><em data-i18n="culture.titleEnd">Curiosidad por la ingenier&#237;a.</em></h2>
-        <p data-i18n="culture.body">La cultura del desarrollo de juegos fomenta la experimentaci&#243;n, la colaboraci&#243;n y el aprendizaje continuo. Ese esp&#237;ritu tambi&#233;n impulsa nuestros prototipos e iniciativas de investigaci&#243;n y desarrollo.</p>
-        <div class="rnd-badge"><span class="pulse" aria-hidden="true"></span><span data-i18n="culture.project">PROYECTO EN DESARROLLO</span><b>NO DEAD ENDS</b></div>
-      </div>
-    </section>
-
-    <section class="contact-section" id="contato">
-      <div class="contact-grid" aria-hidden="true"></div>
-      <div class="contact-content reveal">
-        <p class="eyebrow" data-i18n="contact.eyebrow">CONTACTO B2B</p>
-        <h2><span data-i18n="contact.titleStart">Hagamos realidad tu</span><br><em data-i18n="contact.titleEnd">pr&#243;ximo proyecto.</em></h2>
-        <p class="contact-intro" data-i18n="contact.body">Cu&#233;ntanos cu&#225;l es tu desaf&#237;o. Nuestro equipo puede ayudarte a encontrar el mejor camino t&#233;cnico para tu idea.</p>
-        <form class="contact-form" id="contactForm">
-          <label><span data-i18n="contact.name">Tu nombre</span><input name="name" autocomplete="name" required></label>
-          <label><span data-i18n="contact.company">Empresa</span><input name="company" autocomplete="organization"></label>
-          <label><span data-i18n="contact.email">Correo electr&#243;nico corporativo</span><input name="email" type="email" autocomplete="email" required></label>
-          <label class="form-message"><span data-i18n="contact.message">&#191;C&#243;mo podemos ayudarte?</span><textarea name="message" rows="4" required></textarea></label>
-          <button class="button button-primary form-submit" type="submit"><span data-i18n="contact.submit">Preparar mensaje</span><span aria-hidden="true">↗</span></button>
-          <p class="form-note" data-i18n="contact.note">Al enviar, se abrir&#225; la aplicaci&#243;n de correo configurada en tu dispositivo.</p>
-        </form>
-        <p class="contact-direct"><span data-i18n="contact.direct">O contacta directamente con el equipo</span><a data-contact-email href="mailto:hello@back2byte.com">hello@back2byte.com</a></p>
-      </div>
-    </section>
-  </main>
+      <a class="scroll-cue" href="/es/#sobre"><span data-i18n="hero.scroll">DESLIZA PARA EXPLORAR</span><span aria-hidden="true">↓</span></a>
+    </section><section class="section overview-section" id="sobre" aria-labelledby="overview-title"><p class="eyebrow reveal" data-i18n="overview.eyebrow">BACK2BYTE INTERACTIVE · JOINVILLE, BRASIL</p><h2 id="overview-title" class="reveal" data-i18n="overview.title">Juegos hechos para ir más allá del juego.</h2><p class="overview-copy reveal" data-i18n="overview.body">Desde el co-desarrollo y el porting hasta advergames y formación interactiva, combinamos ingeniería experimentada y creatividad para resolver los desafíos de estudios, marcas y empresas.</p></section><section class="page-cta home-contact-cta" aria-labelledby="home-contact-title"><div class="home-contact-copy"><p class="eyebrow">CONTACTO</p><h2 id="home-contact-title">¿Qué vamos a construir hoy?</h2><a class="button button-primary" href="/contact/es/">Hablemos <span aria-hidden="true">↗</span></a></div><div class="home-contact-details"><a class="home-contact-email" href="mailto:contact@back2byte.com">contact@back2byte.com</a><nav class="header-socials" aria-label="Redes sociales"><a href="https://www.linkedin.com/company/back2byte" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a><a href="https://www.instagram.com/back2byte_b2b/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a><a href="https://www.youtube.com/@back2byte_b2b" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a></nav></div></section></main>
 
   <footer class="site-footer">
-    <a class="brand footer-brand" href="#inicio" aria-label="Back2Byte Interactive — inicio">
-      <img src="../assets/Logo 1 Branca.png" alt="" width="36" height="36">
+    <a class="brand footer-brand" href="/es/" aria-label="Back2Byte Interactive — inicio">
+      <img src="/assets/images/logo_white.png" data-dark-src="/assets/images/logo_white.png" data-light-src="/assets/images/logo_black.png" alt="" width="36" height="36">
       <span class="brand-name">BACK<span>2</span>BYTE<small>INTERACTIVE</small></span>
     </a>
-    <p data-i18n="footer.tagline">Estamos contigo, desde el primer byte.</p>
+    <p>Estamos contigo, desde el primer byte.</p>
     <p class="copyright">© <span id="currentYear">2026</span> Back2Byte Interactive</p>
   </footer>
 </body>

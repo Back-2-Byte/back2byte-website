@@ -4,11 +4,13 @@ Website institucional da Back2Byte Interactive, holding B2B especializada em eng
 
 ## Estrutura
 
-- `index.html`: estrutura semântica e conteúdo inicial em português.
-- `styles.css`: identidade visual, temas escuro/claro, componentes e layouts responsivos.
-- `script.js`: alternância de idioma e tema, navegação móvel, abas técnicas, animações e formulário de contato.
-- `content.json`: metadados e traduções em português, inglês e espanhol.
-- `assets/`: logotipos e espaço para imagens que serão adicionadas ao site.
+- `index.html`, `en/index.html` e `es/index.html`: páginas iniciais nos três idiomas.
+- `about/`, `ourwork/`, `whygames/`, `partners/` e `contact/`: cada pasta contém o `index.html` em português e as versões `en/index.html` e `es/index.html`.
+- `assets/css/styles.css`: temas, componentes e layouts responsivos.
+- `assets/js/script.js`: alternância de idioma e tema, navegação móvel, abas técnicas, jogo da cobrinha, animações e formulário de contato.
+- `assets/data/content.json`: metadados, strings de interface e traduções em português, inglês e espanhol.
+- `assets/images/`: logotipos e imagens do site.
+- `robots.txt` e `sitemap.xml`: permitem o rastreamento e enumeram as rotas canônicas e suas alternativas de idioma.
 
 ## Visualização local
 
@@ -18,7 +20,9 @@ O formulário de contato prepara uma mensagem e abre o aplicativo de e-mail conf
 
 ## Conteúdo e identidade
 
-Edite os textos em `content.json`, mantendo as mesmas chaves nas seções `pt`, `en` e `es`. Ao acessar a raiz do site, o navegador é direcionado para a versão correspondente ao primeiro idioma compatível das preferências do navegador; se nenhuma preferência for português, espanhol ou inglês, a versão em inglês é usada. As rotas `/pt/`, `/es/` e `/en/` continuam disponíveis diretamente. As cores e os estilos globais estão definidos como propriedades CSS em `:root`, em `styles.css`. O tema escuro é o padrão; o controle no cabeçalho alterna para o tema claro.
+As páginas têm conteúdo HTML próprio, não são renderizadas como uma single page. As rotas em português são `/`, `/about/`, `/ourwork/`, `/whygames/`, `/partners/` e `/contact/`. As homes em inglês e espanhol ficam em `/en/` e `/es/`; nas demais páginas, cada idioma tem sua subpasta, como `/about/en/` e `/about/es/`. O seletor de idioma mantém a página atual ao trocar de idioma. O jogo da cobrinha aceita as setas, WASD e controles de toque; o recorde fica salvo no navegador. O tema escuro é o padrão e a preferência de tema também é salva localmente.
+
+O contato oficial é `contact@back2byte.com`. Os links oficiais do [LinkedIn](https://www.linkedin.com/company/back2byte), [Instagram](https://www.instagram.com/back2byte_b2b/) e [YouTube](https://www.youtube.com/@back2byte_b2b) aparecem no cabeçalho e na seção de contato.
 
 ## Licença
 

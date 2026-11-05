@@ -1,19 +1,3 @@
-function getBrowserLanguage() {
-  const preferredLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
-  for (const locale of preferredLanguages) {
-    const language = locale?.split("-")[0].toLowerCase();
-    if (language === "pt" || language === "es" || language === "en") return language;
-  }
-  return "en";
-}
-
-const pathname = (window.location.pathname || "/").toLowerCase();
-if (pathname === "/" || pathname === "/index.html") {
-  const localePaths = { en: "/en/", es: "/es/", pt: "/pt/" };
-  const targetPath = localePaths[getBrowserLanguage()];
-  window.location.replace(`${targetPath}${window.location.search}${window.location.hash}`);
-}
-
 document.documentElement.classList.add("js");
 
 const languageButtons = [...document.querySelectorAll(".language-toggle")];
@@ -23,78 +7,34 @@ const navigation = document.getElementById("primaryNav");
 const contactForm = document.getElementById("contactForm");
 const byteCanvas = document.getElementById("byteCanvas");
 let translations;
+let snakeGame;
+
+const savedTheme = window.localStorage.getItem("back2byte-theme");
+if (savedTheme === "light" || savedTheme === "dark") {
+  document.documentElement.dataset.theme = savedTheme;
+}
+
+function syncThemeLogos() {
+  const isLight = document.documentElement.dataset.theme === "light";
+  document.querySelectorAll("[data-dark-src][data-light-src]").forEach((image) => {
+    image.src = isLight ? image.dataset.lightSrc : image.dataset.darkSrc;
+  });
+}
+syncThemeLogos();
 
 function getCurrentLanguage() {
-  const pathname = (window.location.pathname || "/").toLowerCase();
-  if (pathname === "/en" || pathname.startsWith("/en/")) return "en";
-  if (pathname === "/es" || pathname.startsWith("/es/")) return "es";
+  const pathSegments = (window.location.pathname || "/").toLowerCase().split("/").filter(Boolean);
+  if (pathSegments.includes("en")) return "en";
+  if (pathSegments.includes("es")) return "es";
   return "pt";
 }
 
 function getContentPath() {
-  const pathname = (window.location.pathname || "/").toLowerCase();
-  return pathname === "/en" || pathname.startsWith("/en/") || pathname === "/es" || pathname.startsWith("/es/") || pathname === "/pt" || pathname.startsWith("/pt/") ? "../content.json" : "content.json";
+  return "/assets/data/content.json";
 }
 
 function getTranslation(path) {
   return path.split(".").reduce((value, part) => value?.[part], translations?.translations?.[currentLanguage]);
-}
-
-function setSeoMetadata(language) {
-  const seoByLanguage = {
-    en: {
-      title: "Back2Byte Interactive | Game Development & B2B Solutions",
-      description: "Game development, co-development, porting, performance optimization, and corporate gamification. We build interactive solutions for businesses, publishers, and game studios.",
-      canonical: "https://back2byte.com/en/",
-      locale: "en_US"
-    },
-    es: {
-      title: "Back2Byte Interactive | Desarrollo de juegos y soluciones B2B",
-      description: "Desarrollo de juegos, co-development, porting, optimización de rendimiento y gamificación corporativa. Creamos soluciones interactivas para empresas, publishers y estudios.",
-      canonical: "https://back2byte.com/es/",
-      locale: "es_ES"
-    },
-    pt: {
-      title: "Back2Byte Interactive | Desenvolvimento de Games e Soluções B2B",
-      description: "Desenvolvimento de jogos, co-development, porting, otimização e gamificação corporativa. Soluções tecnológicas e experiências interativas para empresas e estúdios.",
-      canonical: "https://back2byte.com/pt/",
-      locale: "pt_BR"
-    }
-  };
-
-  const metadata = seoByLanguage[language] || seoByLanguage.en;
-  document.title = metadata.title;
-
-  const descriptionMeta = document.querySelector('meta[name="description"]');
-  if (descriptionMeta) descriptionMeta.setAttribute("content", metadata.description);
-
-  const canonicalMeta = document.querySelector('link[rel="canonical"]');
-  if (canonicalMeta) canonicalMeta.setAttribute("href", metadata.canonical);
-
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle) ogTitle.setAttribute("content", metadata.title);
-
-  const ogDescription = document.querySelector('meta[property="og:description"]');
-  if (ogDescription) ogDescription.setAttribute("content", metadata.description);
-
-  const ogLocale = document.querySelector('meta[property="og:locale"]');
-  if (ogLocale) ogLocale.setAttribute("content", metadata.locale);
-
-  const alternateLanguages = {
-    en: "https://back2byte.com/en/",
-    es: "https://back2byte.com/es/",
-    pt: "https://back2byte.com/pt/"
-  };
-
-  document.querySelectorAll('link[hreflang]').forEach((link) => {
-    const hreflang = link.getAttribute("hreflang");
-    if (hreflang && alternateLanguages[hreflang]) {
-      link.setAttribute("href", alternateLanguages[hreflang]);
-    }
-  });
-
-  const xDefault = document.querySelector('link[hreflang="x-default"]');
-  if (xDefault) xDefault.setAttribute("href", "https://back2byte.com/");
 }
 
 function applyLanguage(language) {
@@ -104,7 +44,6 @@ function applyLanguage(language) {
   }
 
   document.documentElement.lang = language === "pt" ? "pt-BR" : language === "es" ? "es-ES" : "en";
-  setSeoMetadata(language);
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const value = getTranslation(element.dataset.i18n);
@@ -126,6 +65,13 @@ function applyLanguage(language) {
   menuButton.setAttribute("aria-label", getTranslation(menuButton.getAttribute("aria-expanded") === "true" ? "ui.closeMenu" : "ui.openMenu"));
   navigation.setAttribute("aria-label", getTranslation("ui.primaryNavigation"));
   document.querySelectorAll(".brand[aria-label]").forEach((brand) => brand.setAttribute("aria-label", getTranslation("ui.brandHome")));
+  document.querySelectorAll(".snake-controls").forEach((controls) => controls.setAttribute("aria-label", getTranslation("game.controls")));
+  document.querySelectorAll(".snake-controls [data-direction]").forEach((button) => {
+    button.setAttribute("aria-label", getTranslation(`game.directions.${button.dataset.direction}`));
+  });
+  const snakeCanvas = document.getElementById("snakeCanvas");
+  if (snakeCanvas) snakeCanvas.setAttribute("aria-label", getTranslation("game.canvasLabel"));
+  snakeGame?.refreshLabels();
 }
 
 let currentLanguage = getCurrentLanguage();
@@ -162,12 +108,11 @@ loadTranslations().catch((error) => {
 languageButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const selectedLanguage = button.dataset.language;
-    const localePaths = {
-      en: "/en/",
-      es: "/es/",
-      pt: "/pt/"
-    };
-    const targetPath = localePaths[selectedLanguage] || "/";
+    const pathParts = (window.location.pathname || "/").split("/").filter(Boolean);
+    const page = pathParts.find((part) => !["en", "es", "pt"].includes(part));
+    const targetPath = page
+      ? selectedLanguage === "pt" ? `/${page}/` : `/${page}/${selectedLanguage}/`
+      : selectedLanguage === "pt" ? "/" : `/${selectedLanguage}/`;
     const currentPath = (window.location.pathname || "/").toLowerCase();
 
     if (currentPath !== targetPath.toLowerCase()) {
@@ -182,6 +127,8 @@ languageButtons.forEach((button) => {
 themeButton.addEventListener("click", () => {
   const theme = document.documentElement.dataset.theme === "light" ? "dark" : "light";
   document.documentElement.dataset.theme = theme;
+  window.localStorage.setItem("back2byte-theme", theme);
+  syncThemeLogos();
   themeButton.setAttribute("aria-label", getTranslation(theme === "light" ? "ui.switchToDark" : "ui.switchToLight"));
 });
 
@@ -354,200 +301,235 @@ document.querySelectorAll(".service-card").forEach((card) => {
   }, { passive: true });
 });
 
-contactForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  if (!contactForm.reportValidity()) return;
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) return;
 
-  const formData = new FormData(contactForm);
-  const subject = encodeURIComponent(`Contato Back2Byte — ${formData.get("company") || formData.get("name")}`);
-  const message = [
-    `${getTranslation("contact.name")}: ${formData.get("name")}`,
-    `${getTranslation("contact.company")}: ${formData.get("company") || "-"}`,
-    `${getTranslation("contact.email")}: ${formData.get("email")}`,
-    "",
-    `${getTranslation("contact.message")}:`,
-    formData.get("message"),
-  ].join("\n");
-  window.location.href = `mailto:${translations.meta.contactEmail}?subject=${subject}&body=${encodeURIComponent(message)}`;
-});
-
-document.getElementById("currentYear").textContent = new Date().getFullYear();
-
-function initializeHeroGame() {
-  const hero = document.getElementById("inicio");
-  const gameLayer = document.getElementById("heroGameLayer");
-  const counter = document.getElementById("bugsCount");
-  if (!hero || !gameLayer || !counter) return;
-
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const bugs = [];
-  const pointer = { x: 0, y: 0, inside: false };
-  let devoured = 0;
-  let visible = false;
-  let animationFrame = 0;
-  let lastFrameTime = 0;
-  let biteTimeout;
-
-  function randomBetween(min, max) {
-    return min + Math.random() * (max - min);
-  }
-
-  function placeBug(bug) {
-    bug.element.style.left = `${bug.x}px`;
-    bug.element.style.top = `${bug.y}px`;
-  }
-
-  function createBug() {
-    const width = Math.max(1, hero.clientWidth);
-    const height = Math.max(1, hero.clientHeight);
-    const minY = Math.min(110, height / 2);
-    const maxY = Math.max(minY, height - 65);
-    const bug = {
-      element: document.createElement("span"),
-      x: randomBetween(width * .55, width * .94),
-      y: randomBetween(minY, maxY),
-      vx: reduceMotion ? 0 : randomBetween(-32, 32),
-      vy: reduceMotion ? 0 : randomBetween(-23, 23),
-      eaten: false,
-    };
-
-    bug.element.className = "hero-bug";
-    gameLayer.append(bug.element);
-    placeBug(bug);
-    bugs.push(bug);
-  }
-
-  function createBurst(x, y) {
-    const particleCount = 12;
-    for (let index = 0; index < particleCount; index += 1) {
-      const particle = document.createElement("span");
-      const angle = (Math.PI * 2 * index) / particleCount;
-      const distance = randomBetween(22, 38);
-      particle.className = "hero-particle";
-      particle.style.left = `${x}px`;
-      particle.style.top = `${y}px`;
-      particle.style.setProperty("--particle-x", `${Math.cos(angle) * distance}px`);
-      particle.style.setProperty("--particle-y", `${Math.sin(angle) * distance}px`);
-      gameLayer.append(particle);
-      window.setTimeout(() => particle.remove(), 480);
-    }
-  }
-
-  function devour(bug) {
-    if (bug.eaten) return;
-    bug.eaten = true;
-    bug.element.classList.add("is-devoured");
-    devoured += 1;
-    counter.textContent = String(devoured);
-    createBurst(bug.x, bug.y);
-    if (dot) {
-      dot.classList.add("is-mouth", "is-visible");
-      dot.classList.add("is-closed");
-      window.clearTimeout(biteTimeout);
-      biteTimeout = window.setTimeout(() => dot.classList.remove("is-closed"), 150);
-    }
-    window.setTimeout(() => {
-      bug.element.remove();
-      const index = bugs.indexOf(bug);
-      if (index !== -1) bugs.splice(index, 1);
-      createBug();
-    }, 240);
-  }
-
-  function checkCollisions() {
-    if (!pointer.inside) return;
-    bugs.forEach((bug) => {
-      if (bug.eaten) return;
-      const distance = Math.hypot(bug.x - pointer.x, bug.y - pointer.y);
-      if (distance < 24) devour(bug);
-    });
-  }
-
-  function updatePointer(event) {
-    const bounds = hero.getBoundingClientRect();
-    pointer.x = event.clientX - bounds.left;
-    pointer.y = event.clientY - bounds.top;
-    pointer.inside = true;
-
-    if (event.pointerType !== "touch" && dot) {
-      dot.style.left = `${event.clientX}px`;
-      dot.style.top = `${event.clientY}px`;
-      dot.classList.add("is-mouth", "is-visible");
-      dot.classList.remove("is-tracker", "is-target");
-    }
-
-    checkCollisions();
-  }
-
-  function animate(timestamp) {
-    animationFrame = 0;
-    if (!visible || document.visibilityState === "hidden") return;
-    const delta = lastFrameTime ? Math.min((timestamp - lastFrameTime) / 1000, .05) : 0;
-    lastFrameTime = timestamp;
-
-    if (!reduceMotion) {
-      const width = hero.clientWidth;
-      const height = hero.clientHeight;
-      bugs.forEach((bug) => {
-        if (bug.eaten) return;
-        bug.x += bug.vx * delta;
-        bug.y += bug.vy * delta;
-        if (bug.x < 14 || bug.x > width - 14) bug.vx *= -1;
-        if (bug.y < 14 || bug.y > height - 14) bug.vy *= -1;
-        bug.x = Math.min(width - 14, Math.max(14, bug.x));
-        bug.y = Math.min(height - 14, Math.max(14, bug.y));
-        placeBug(bug);
-      });
-    }
-
-    checkCollisions();
-    animationFrame = window.requestAnimationFrame(animate);
-  }
-
-  function syncAnimation() {
-    const shouldAnimate = visible && document.visibilityState !== "hidden" && !reduceMotion;
-    if (shouldAnimate && !animationFrame) {
-      lastFrameTime = 0;
-      animationFrame = window.requestAnimationFrame(animate);
-    } else if (!shouldAnimate && animationFrame) {
-      window.cancelAnimationFrame(animationFrame);
-      animationFrame = 0;
-    }
-  }
-
-  for (let index = 0; index < 7; index += 1) createBug();
-
-  window.addEventListener("resize", () => {
-    const width = hero.clientWidth;
-    const height = hero.clientHeight;
-    bugs.forEach((bug) => {
-      bug.x = Math.min(width - 14, Math.max(14, bug.x));
-      bug.y = Math.min(height - 14, Math.max(14, bug.y));
-      placeBug(bug);
-    });
-  }, { passive: true });
-
-  hero.addEventListener("pointerenter", updatePointer);
-  hero.addEventListener("pointermove", updatePointer, { passive: true });
-  hero.addEventListener("pointerleave", (event) => {
-    if (event.pointerType !== "touch") {
-      pointer.inside = false;
-      if (dot) dot.classList.remove("is-bite");
-    }
+    const formData = new FormData(contactForm);
+    const subject = encodeURIComponent(`Contato Back2Byte — ${formData.get("company") || formData.get("name")}`);
+    const message = [
+      `${getTranslation("contact.name")}: ${formData.get("name")}`,
+      `${getTranslation("contact.company")}: ${formData.get("company") || "-"}`,
+      `${getTranslation("contact.email")}: ${formData.get("email")}`,
+      "",
+      `${getTranslation("contact.message")}:`,
+      formData.get("message"),
+    ].join("\n");
+    window.location.href = `mailto:${translations.meta.contactEmail}?subject=${subject}&body=${encodeURIComponent(message)}`;
   });
-  hero.addEventListener("pointerdown", updatePointer);
-  document.addEventListener("visibilitychange", syncAnimation);
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      syncAnimation();
-    }, { rootMargin: "40px" });
-    observer.observe(hero);
-  } else {
-    visible = true;
-    syncAnimation();
-  }
 }
 
-initializeHeroGame();
+const currentYear = document.getElementById("currentYear");
+if (currentYear) currentYear.textContent = new Date().getFullYear();
+
+function initializeSnakeGame() {
+  const canvas = document.getElementById("snakeCanvas");
+  const playButton = document.getElementById("snakePlay");
+  const overlay = document.getElementById("snakeOverlay");
+  const status = document.getElementById("snakeStatus");
+  const scoreDisplay = document.getElementById("snakeScore");
+  const highscoreDisplay = document.getElementById("snakeHighscore");
+  if (!canvas || !playButton || !overlay || !status || !scoreDisplay || !highscoreDisplay) return;
+
+  const context = canvas.getContext("2d");
+  if (!context) {
+    console.error("The snake game could not initialize because the canvas context is unavailable.");
+    return;
+  }
+
+  const cellSize = 20;
+  const columns = canvas.width / cellSize;
+  const rows = canvas.height / cellSize;
+  const highscoreKey = "back2byte-snake-highscore";
+  let snake = [];
+  let food = { x: 0, y: 0 };
+  let direction = { x: 1, y: 0 };
+  let nextDirection = { x: 1, y: 0 };
+  let score = 0;
+  let highscore = readHighscore();
+  let intervalId = 0;
+  let isRunning = false;
+  let hasTurned = false;
+
+  function readHighscore() {
+    try {
+      const saved = Number(window.localStorage.getItem(highscoreKey));
+      return Number.isFinite(saved) && saved > 0 ? saved : 0;
+    } catch (error) {
+      console.error("The snake game high score could not be loaded from local storage.", error);
+      return 0;
+    }
+  }
+
+  function saveHighscore() {
+    try {
+      window.localStorage.setItem(highscoreKey, String(highscore));
+    } catch (error) {
+      console.error("The snake game high score could not be saved to local storage.", error);
+    }
+  }
+
+  function makeSnake() {
+    const centerX = Math.floor(columns / 2);
+    const centerY = Math.floor(rows / 2);
+    return [{ x: centerX, y: centerY }, { x: centerX - 1, y: centerY }, { x: centerX - 2, y: centerY }];
+  }
+
+  function placeFood() {
+    do {
+      food = { x: Math.floor(Math.random() * columns), y: Math.floor(Math.random() * rows) };
+    } while (snake.some((segment) => segment.x === food.x && segment.y === food.y));
+  }
+
+  function draw() {
+    context.fillStyle = "#f4f6f1";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.strokeStyle = "rgba(12, 38, 22, .08)";
+    context.lineWidth = 1;
+    for (let x = 0; x <= canvas.width; x += cellSize) {
+      context.beginPath();
+      context.moveTo(x, 0);
+      context.lineTo(x, canvas.height);
+      context.stroke();
+    }
+    for (let y = 0; y <= canvas.height; y += cellSize) {
+      context.beginPath();
+      context.moveTo(0, y);
+      context.lineTo(canvas.width, y);
+      context.stroke();
+    }
+
+    context.fillStyle = "#ed3d52";
+    context.beginPath();
+    context.arc(food.x * cellSize + cellSize / 2, food.y * cellSize + cellSize / 2, 7, 0, Math.PI * 2);
+    context.fill();
+    context.fillStyle = "#9c1f34";
+    context.fillRect(food.x * cellSize + 5, food.y * cellSize + 3, 3, 3);
+    context.fillRect(food.x * cellSize + 12, food.y * cellSize + 3, 3, 3);
+
+    snake.forEach((segment, index) => {
+      const inset = index === 0 ? 2 : 3;
+      context.fillStyle = index === 0 ? "#008f3c" : "#00b348";
+      context.fillRect(segment.x * cellSize + inset, segment.y * cellSize + inset, cellSize - inset * 2, cellSize - inset * 2);
+    });
+
+    const head = snake[0];
+    if (head) {
+      context.fillStyle = "#f4f6f1";
+      const eyeX = head.x * cellSize + cellSize / 2 + direction.x * 4;
+      const eyeY = head.y * cellSize + cellSize / 2 + direction.y * 4;
+      context.fillRect(eyeX - direction.y * 4 - 1, eyeY + direction.x * 4 - 1, 3, 3);
+      context.fillRect(eyeX + direction.y * 4 - 1, eyeY - direction.x * 4 - 1, 3, 3);
+    }
+  }
+
+  function refreshLabels() {
+    const label = isRunning ? "game.playing" : score > 0 ? "game.restart" : "game.play";
+    playButton.textContent = getTranslation(label) || "Play";
+    status.textContent = getTranslation(isRunning ? "game.playing" : score > 0 ? "game.over" : "game.ready") || "READY";
+    highscoreDisplay.textContent = String(highscore);
+  }
+
+  function stopGame() {
+    window.clearInterval(intervalId);
+    intervalId = 0;
+    isRunning = false;
+    overlay.hidden = false;
+    overlay.textContent = `${getTranslation("game.over") || "GAME OVER"} · ${score}`;
+    refreshLabels();
+  }
+
+  function move() {
+    direction = nextDirection;
+    hasTurned = false;
+    const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+    const ateFood = head.x === food.x && head.y === food.y;
+    const body = ateFood ? snake : snake.slice(0, -1);
+    const hitBody = body.some((segment) => segment.x === head.x && segment.y === head.y);
+    if (head.x < 0 || head.x >= columns || head.y < 0 || head.y >= rows || hitBody) {
+      stopGame();
+      return;
+    }
+
+    snake.unshift(head);
+    if (ateFood) {
+      score += 1;
+      scoreDisplay.textContent = String(score);
+      placeFood();
+      if (score > highscore) {
+        highscore = score;
+        highscoreDisplay.textContent = String(highscore);
+        saveHighscore();
+      }
+      window.clearInterval(intervalId);
+      intervalId = window.setInterval(move, Math.max(70, 145 - score * 2));
+    } else {
+      snake.pop();
+    }
+    draw();
+  }
+
+  function setDirection(name) {
+    const directions = {
+      up: { x: 0, y: -1 },
+      down: { x: 0, y: 1 },
+      left: { x: -1, y: 0 },
+      right: { x: 1, y: 0 }
+    };
+    const requested = directions[name];
+    if (!requested || hasTurned || requested.x === -direction.x && requested.y === -direction.y) return;
+    nextDirection = requested;
+    hasTurned = true;
+  }
+
+  function startGame() {
+    window.clearInterval(intervalId);
+    snake = makeSnake();
+    direction = { x: 1, y: 0 };
+    nextDirection = { x: 1, y: 0 };
+    score = 0;
+    scoreDisplay.textContent = "0";
+    isRunning = true;
+    hasTurned = false;
+    placeFood();
+    overlay.hidden = true;
+    refreshLabels();
+    draw();
+    if (document.visibilityState !== "hidden") intervalId = window.setInterval(move, 145);
+  }
+
+  playButton.addEventListener("click", startGame);
+  document.querySelectorAll(".snake-controls [data-direction]").forEach((button) => {
+    button.addEventListener("click", () => setDirection(button.dataset.direction));
+  });
+  window.addEventListener("keydown", (event) => {
+    if (!isRunning || event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable='true']")) return;
+    const directions = {
+      ArrowUp: "up", w: "up", W: "up",
+      ArrowDown: "down", s: "down", S: "down",
+      ArrowLeft: "left", a: "left", A: "left",
+      ArrowRight: "right", d: "right", D: "right"
+    };
+    const requested = directions[event.key];
+    if (!requested) return;
+    event.preventDefault();
+    setDirection(requested);
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") {
+      window.clearInterval(intervalId);
+      intervalId = 0;
+    } else if (isRunning && !intervalId) {
+      intervalId = window.setInterval(move, Math.max(70, 145 - score * 2));
+    }
+  });
+
+  snake = makeSnake();
+  placeFood();
+  draw();
+  refreshLabels();
+  snakeGame = { refreshLabels };
+}
+
+initializeSnakeGame();

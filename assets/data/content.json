@@ -1,7 +1,7 @@
 ﻿{
     "meta":  {
                  "companyName":  "Back2Byte Interactive",
-                 "contactEmail":  "hello@back2byte.com",
+                 "contactEmail":  "contact@back2byte.com",
                  "defaultLanguage":  "pt",
                  "languages":  [
                                    "pt",
@@ -23,8 +23,8 @@
                                                     "body":  "Conte um pouco sobre o seu desafio. Nossa equipe pode ajudar a encontrar o melhor caminho técnico para a sua ideia.",
                                                     "title":  "Vamos tirar seu próximo projeto do papel.",
                                                     "email":  "E-mail corporativo",
-                                                    "titleStart":  "Vamos tirar seu",
-                                                    "titleEnd":  "próximo projeto do papel."
+                                                    "titleStart":  "O que vamos construir",
+                                                    "titleEnd":  "hoje?"
                                                 },
                                     "services":  {
                                                      "gamification":  {
@@ -111,16 +111,61 @@
                                               },
                                     "hero":  {
                                                  "primary":  "Agendar uma conversa estratégica",
-                                                 "titleEnd":  "desde o primeiro byte.",
-                                                 "titleStart":  "Estamos contigo,",
+                                                 "titleEnd":  "NÓS CUIDAMOS DOS BYTES.",
+                                                 "titleStart":  "VOCÊ FOCA NO NEGÓCIO.",
                                                  "eyebrow":  "ENGENHARIA DE GAMES · SOLUÇÕES B2B",
                                                  "scroll":  "ROLE PARA EXPLORAR",
-                                                 "body":  "Co-development, porting e gamificação corporativa com rigor de engenharia, previsibilidade e performance do protótipo à entrega.",
+                                                 "body":  "Parceira de engenharia para estúdios e empresas: co-development, porting e experiências interativas do primeiro protótipo à entrega.",
                                                  "secondary":  "Conhecer soluções B2B",
                                                  "proof":  {
                                                                "consoles":  "CONSOLES"
                                                            }
                                              },
+                                    "game":  {
+                                                 "title":  "BYTE SNAKE",
+                                                 "ready":  "PRONTO",
+                                                 "playing":  "JOGANDO",
+                                                 "over":  "FIM DE JOGO",
+                                                 "score":  "PONTOS",
+                                                 "highscore":  "RECORDE",
+                                                 "play":  "JOGAR",
+                                                 "restart":  "JOGAR NOVAMENTE",
+                                                 "instructions":  "Clique em Jogar e use as setas ou WASD",
+                                                 "controls":  "Controles da cobrinha",
+                                                 "canvasLabel":  "Jogo da cobrinha Back2Byte",
+                                                 "cta":  "Vamos construir algo que faça a diferença?",
+                                                 "directions":  {
+                                                                    "up":  "Cima",
+                                                                    "down":  "Baixo",
+                                                                    "left":  "Esquerda",
+                                                                    "right":  "Direita"
+                                                                }
+                                             },
+                                    "overview":  {
+                                                     "eyebrow":  "BACK2BYTE INTERACTIVE · JOINVILLE, BRASIL",
+                                                     "title":  "Games feitos para ir além do jogo.",
+                                                     "body":  "De co-desenvolvimento e portabilidade a advergames e treinamentos interativos, unimos engenharia experiente e criatividade para resolver desafios de estúdios, marcas e empresas. Somos uma equipe brasileira de Joinville, Santa Catarina — pronta para integrar seu time ou entregar uma experiência completa."
+                                                 },
+                                    "models":  {
+                                                   "eyebrow":  "PARCERIAS SOB MEDIDA",
+                                                   "title":  "Um modelo para cada ideia.",
+                                                   "intro":  "Atendemos estúdios, empresas e pessoas. O formato acompanha a necessidade: produção completa, colaboração técnica ou uma experiência personalizada a partir de um template.",
+                                                   "custom":  {
+                                                                   "label":  "01 / MARCAS E EMPRESAS",
+                                                                   "title":  "Experiências do zero",
+                                                                   "body":  "Advergames, jogos para eventos, quizzes e treinamentos gamificados, com produção end-to-end alinhada aos objetivos da sua marca."
+                                                              },
+                                                   "codev":  {
+                                                                  "label":  "02 / ESTÚDIOS E PUBLISHERS",
+                                                                  "title":  "Co-development técnico",
+                                                                  "body":  "Porting, otimização e engenharia integrados ao seu time para avançar o projeto com mais capacidade e segurança técnica."
+                                                             },
+                                                   "gift":  {
+                                                                 "label":  "03 / PRESENTES PERSONALIZADOS",
+                                                                 "title":  "Um jogo com a sua história",
+                                                                 "body":  "Jogos baseados em templates prontos, com personalização pontual para presentear alguém especial por um investimento mais acessível."
+                                                            }
+                                               },
                                     "gameDev":  {
                                                     "supportLabel":  "APOIO TÉCNICO ONDE VOCÊ PRECISA",
                                                     "titleEnd":  "A gente ajuda a descomplicar.",
@@ -196,8 +241,8 @@
                                     "ui":  {
                                                "brandHome":  "Back2Byte Interactive — início",
                                                "closeMenu":  "Fechar menu",
-                                               "switchToLight":  "Ativar tema escuro",
-                                               "switchToDark":  "Ativar tema claro",
+                                               "switchToLight":  "Ativar tema claro",
+                                               "switchToDark":  "Ativar tema escuro",
                                                "skipLink":  "Pular para o conteúdo",
                                                "primaryNavigation":  "Navegação principal",
                                                "openMenu":  "Abrir menu"
@@ -241,16 +286,61 @@
                          "en":  {
                                     "hero":  {
                                                  "primary":  "Schedule a strategic conversation",
-                                                 "titleEnd":  "from the first byte.",
-                                                 "titleStart":  "We’re with you,",
+                                                 "titleEnd":  "WE GOT YOUR BYTE.",
+                                                 "titleStart":  "WE GOT YOUR BACK.",
                                                  "eyebrow":  "GAME ENGINEERING · B2B SOLUTIONS",
-                                                 "body":  "Co-development, porting and corporate gamification with engineering rigor, predictability and performance from prototype to delivery.",
+                                                 "body":  "Your engineering partner for studios and businesses: co-development, porting and interactive experiences from the first prototype to delivery.",
                                                  "secondary":  "Explore B2B solutions",
                                                  "scroll":  "SCROLL TO EXPLORE",
                                                  "proof":  {
                                                                "consoles":  "CONSOLES"
                                                            }
                                              },
+                                    "game":  {
+                                                 "title":  "BYTE SNAKE",
+                                                 "ready":  "READY",
+                                                 "playing":  "PLAYING",
+                                                 "over":  "GAME OVER",
+                                                 "score":  "SCORE",
+                                                 "highscore":  "HIGH SCORE",
+                                                 "play":  "PLAY",
+                                                 "restart":  "PLAY AGAIN",
+                                                 "instructions":  "Press Play, then use arrow keys or WASD",
+                                                 "controls":  "Snake controls",
+                                                 "canvasLabel":  "Back2Byte snake game",
+                                                 "cta":  "What can we build together?",
+                                                 "directions":  {
+                                                                    "up":  "Up",
+                                                                    "down":  "Down",
+                                                                    "left":  "Left",
+                                                                    "right":  "Right"
+                                                                }
+                                             },
+                                    "overview":  {
+                                                     "eyebrow":  "BACK2BYTE INTERACTIVE · JOINVILLE, BRAZIL",
+                                                     "title":  "Games built to go beyond the game.",
+                                                     "body":  "From co-development and porting to advergames and interactive training, we combine experienced engineering and creativity to solve challenges for studios, brands and businesses. We are a Brazilian team based in Joinville, Santa Catarina, ready to join your team or deliver a complete experience."
+                                                 },
+                                    "models":  {
+                                                   "eyebrow":  "PARTNERSHIPS, BUILT AROUND YOU",
+                                                   "title":  "A model for every idea.",
+                                                   "intro":  "We work with studios, businesses and individuals. The approach fits the need: end-to-end production, technical collaboration or a personalized experience built from a template.",
+                                                   "custom":  {
+                                                                   "label":  "01 / BRANDS & BUSINESSES",
+                                                                   "title":  "Experiences from scratch",
+                                                                   "body":  "Advergames, event games, quizzes and gamified training, produced end to end around your brand’s goals."
+                                                              },
+                                                   "codev":  {
+                                                                  "label":  "02 / STUDIOS & PUBLISHERS",
+                                                                  "title":  "Technical co-development",
+                                                                  "body":  "Porting, optimization and engineering integrated with your team to move the project forward with added capacity and technical confidence."
+                                                             },
+                                                   "gift":  {
+                                                                 "label":  "03 / PERSONALIZED GIFTS",
+                                                                 "title":  "A game with your story",
+                                                                 "body":  "Template-based games with focused personalization, making a memorable gift at a more accessible price."
+                                                            }
+                                               },
                                     "ui":  {
                                                "brandHome":  "Back2Byte Interactive — home",
                                                "closeMenu":  "Close menu",
@@ -325,8 +415,8 @@
                                                     "name":  "Your name",
                                                     "note":  "Submitting will open the email application configured on your device.",
                                                     "submit":  "Prepare message",
-                                                    "titleStart":  "Let’s get your",
-                                                    "titleEnd":  "next project off the ground."
+                                                    "titleStart":  "What can we build",
+                                                    "titleEnd":  "today?"
                                                 },
                                     "culture":  {
                                                     "body":  "Game development culture encourages experimentation, collaboration and continuous learning. That spirit also fuels our prototypes and research and development initiatives.",
@@ -463,16 +553,61 @@
                          "es":  {
                                     "hero":  {
                                                  "primary":  "Agendar una conversación estratégica",
-                                                 "titleEnd":  "desde el primer byte.",
-                                                 "titleStart":  "Estamos contigo,",
+                                                 "titleEnd":  "NOSOTROS NOS ENCARGAMOS DE LOS BYTES.",
+                                                 "titleStart":  "TÚ TE ENFOCAS EN EL NEGOCIO.",
                                                  "eyebrow":  "INGENIERÍA DE JUEGOS · SOLUCIONES B2B",
-                                                 "body":  "Co-development, porting y gamificación corporativa con rigor técnico, previsibilidad y rendimiento desde el prototipo hasta la entrega.",
+                                                 "body":  "Tu socio de ingeniería para estudios y empresas: co-development, porting y experiencias interactivas desde el primer prototipo hasta la entrega.",
                                                  "secondary":  "Conocer soluciones B2B",
                                                  "scroll":  "DESLIZA PARA EXPLORAR",
                                                  "proof":  {
                                                                "consoles":  "CONSOLAS"
                                                            }
                                              },
+                                    "game":  {
+                                                 "title":  "BYTE SNAKE",
+                                                 "ready":  "LISTO",
+                                                 "playing":  "JUGANDO",
+                                                 "over":  "FIN DEL JUEGO",
+                                                 "score":  "PUNTOS",
+                                                 "highscore":  "RÉCORD",
+                                                 "play":  "JUGAR",
+                                                 "restart":  "VOLVER A JUGAR",
+                                                 "instructions":  "Pulsa Jugar y usa las flechas o WASD",
+                                                 "controls":  "Controles de la serpiente",
+                                                 "canvasLabel":  "Juego de la serpiente Back2Byte",
+                                                 "cta":  "¿Qué podemos construir juntos?",
+                                                 "directions":  {
+                                                                    "up":  "Arriba",
+                                                                    "down":  "Abajo",
+                                                                    "left":  "Izquierda",
+                                                                    "right":  "Derecha"
+                                                                }
+                                             },
+                                    "overview":  {
+                                                     "eyebrow":  "BACK2BYTE INTERACTIVE · JOINVILLE, BRASIL",
+                                                     "title":  "Juegos hechos para ir más allá del juego.",
+                                                     "body":  "Desde el co-desarrollo y el porting hasta advergames y formación interactiva, combinamos ingeniería experimentada y creatividad para resolver los desafíos de estudios, marcas y empresas. Somos un equipo brasileño de Joinville, Santa Catarina, listo para integrarnos a tu equipo o entregar una experiencia completa."
+                                                 },
+                                    "models":  {
+                                                   "eyebrow":  "ALIANZAS A TU MEDIDA",
+                                                   "title":  "Un modelo para cada idea.",
+                                                   "intro":  "Trabajamos con estudios, empresas y personas. El formato se adapta a cada necesidad: producción completa, colaboración técnica o una experiencia personalizada a partir de una plantilla.",
+                                                   "custom":  {
+                                                                   "label":  "01 / MARCAS Y EMPRESAS",
+                                                                   "title":  "Experiencias desde cero",
+                                                                   "body":  "Advergames, juegos para eventos, cuestionarios y formación gamificada, con producción integral alineada con los objetivos de tu marca."
+                                                              },
+                                                   "codev":  {
+                                                                  "label":  "02 / ESTUDIOS Y PUBLISHERS",
+                                                                  "title":  "Co-desarrollo técnico",
+                                                                  "body":  "Porting, optimización e ingeniería integrados en tu equipo para avanzar el proyecto con mayor capacidad y confianza técnica."
+                                                             },
+                                                   "gift":  {
+                                                                 "label":  "03 / REGALOS PERSONALIZADOS",
+                                                                 "title":  "Un juego con tu historia",
+                                                                 "body":  "Juegos basados en plantillas, con personalización acotada para regalar una experiencia especial a un precio más accesible."
+                                                            }
+                                               },
                                     "ui":  {
                                                "brandHome":  "Back2Byte Interactive — inicio",
                                                "closeMenu":  "Cerrar menú",
@@ -547,8 +682,8 @@
                                                     "name":  "Tu nombre",
                                                     "note":  "Al enviar, se abrirá la aplicación de correo configurada en tu dispositivo.",
                                                     "submit":  "Preparar mensaje",
-                                                    "titleStart":  "Hagamos realidad tu",
-                                                    "titleEnd":  "próximo proyecto."
+                                                    "titleStart":  "¿Qué vamos a construir",
+                                                    "titleEnd":  "hoy?"
                                                 },
                                     "culture":  {
                                                     "body":  "La cultura del desarrollo de juegos fomenta la experimentación, la colaboración y el aprendizaje continuo. Ese espíritu también impulsa nuestros prototipos e iniciativas de investigación y desarrollo.",
